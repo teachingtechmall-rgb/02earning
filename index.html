@@ -1,430 +1,441 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>02earning - Master Affiliate Marketing & Digital Skills</title>
-    <meta name="description" content="Unlock the 18-in-1 Digital Marketing bundle. Learn SEO, FB Ads, and Affiliate Marketing to start earning today.">
-    
-    <!-- Google Fonts: Inter & Poppins -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Tailwind CSS -->
+    <title>02earning | 18-in-1 Digital Marketing Bundle</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Lucide Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="https://unpkg.com/lucide@latest"></script>
-
-    <!-- AOS (Animate on Scroll) -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
     <style>
-        :root {
-            --neon-green: #39FF14;
-            --dark-navy: #05070A;
-            --surface: #0F172A;
-        }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+        
         body {
             font-family: 'Inter', sans-serif;
-            background-color: var(--dark-navy);
+            background-color: #050505;
             color: #ffffff;
             overflow-x: hidden;
         }
-        h1, h2, h3 { font-family: 'Poppins', sans-serif; }
-        
-        .neon-shadow {
-            box-shadow: 0 0 15px rgba(57, 255, 20, 0.4);
-        }
+
         .neon-text {
-            color: var(--neon-green);
-            text-shadow: 0 0 10px rgba(57, 255, 20, 0.3);
+            text-shadow: 0 0 10px rgba(57, 255, 20, 0.5), 0 0 20px rgba(57, 255, 20, 0.3);
         }
-        .btn-glow:hover {
-            box-shadow: 0 0 25px rgba(57, 255, 20, 0.6);
-            transform: translateY(-2px);
+
+        .neon-border {
+            border-color: #39FF14;
+            box-shadow: 0 0 15px rgba(57, 255, 20, 0.2);
         }
-        .glass-card {
-            background: rgba(15, 23, 42, 0.8);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+
+        .gradient-gold {
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
-        .whatsapp-float {
-            position: fixed;
-            bottom: 24px;
-            right: 24px;
-            background-color: #25D366;
-            color: white;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-            z-index: 1000;
-            transition: all 0.3s ease;
+
+        .pulse-animation {
+            animation: pulse 2s infinite;
         }
-        .whatsapp-float:hover {
-            transform: scale(1.1);
+
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(57, 255, 20, 0.7); }
+            70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(57, 255, 20, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(57, 255, 20, 0); }
         }
-        .timer-unit {
-            background: rgba(57, 255, 20, 0.1);
-            border: 1px solid var(--neon-green);
+
+        .sales-popup {
+            transform: translateY(100px);
+            transition: all 0.5s ease;
         }
+
+        .sales-popup.show {
+            transform: translateY(0);
+        }
+
+        .fade-up {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease-out;
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #050505; }
+        ::-webkit-scrollbar-thumb { background: #39FF14; border-radius: 10px; }
     </style>
 </head>
-<body>
+<body class="antialiased">
 
-    <!-- Meta Pixel Simulation -->
-    <script>
-        console.log("Meta Pixel Initialized: Tracking ViewContent");
-        function trackLead() {
-            console.log("Meta Pixel: Tracked Lead/Purchase Initiation");
-        }
-    </script>
+    <!-- Top Urgency Bar -->
+    <div class="bg-[#39FF14] text-black text-center py-2 text-xs md:text-sm font-bold sticky top-0 z-50">
+        🔥 FLASH SALE: Ending in <span id="timer-top">15:00</span> - Save 83% Today!
+    </div>
 
-    <!-- WhatsApp Floating Icon -->
-    <a href="https://wa.me/923359473501" target="_blank" class="whatsapp-float">
-        <i data-lucide="message-circle" size="32"></i>
-    </a>
+    <!-- Navigation -->
+    <nav class="p-4 flex justify-between items-center border-b border-white/10 bg-black/80 backdrop-blur-md">
+        <div class="text-2xl font-extrabold text-[#39FF14]">02<span class="text-white">earning</span></div>
+        <div class="hidden md:flex space-x-6 text-sm">
+            <a href="#benefits" class="hover:text-[#39FF14]">Benefits</a>
+            <a href="#courses" class="hover:text-[#39FF14]">Courses</a>
+            <a href="#testimonials" class="hover:text-[#39FF14]">Results</a>
+        </div>
+        <a href="https://wa.me/923359473501" class="bg-green-600 px-4 py-2 rounded-full text-xs font-bold flex items-center">
+            <i class="fab fa-whatsapp mr-2"></i> Get Help
+        </a>
+    </nav>
 
     <!-- Hero Section -->
-    <header class="relative pt-12 pb-20 px-4 overflow-hidden">
-        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full opacity-20 pointer-events-none">
-            <div class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-green-500 rounded-full blur-[120px]"></div>
-        </div>
-        
-        <div class="max-w-4xl mx-auto text-center relative z-10">
-            <div class="inline-flex items-center space-x-2 bg-slate-900 border border-slate-700 px-4 py-1.5 rounded-full mb-8" data-aos="fade-down">
-                <span class="relative flex h-3 w-3">
-                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                    <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
-                </span>
-                <span class="text-sm font-medium text-slate-300">Join 500+ Successful Students</span>
-            </div>
-
-            <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-6" data-aos="fade-up">
-                Master the Art of Making <span class="neon-text italic">Thousands of Dollars</span> Online
-            </h1>
-            
-            <p class="text-lg md:text-xl text-slate-400 mb-10 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
-                Get 18+ Professional Courses, Premium Plugins, and E-Books worth <span class="line-through text-red-500">64,000 PKR</span> for just <span class="text-white font-bold text-2xl">1,100 PKR</span>.
-            </p>
-
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-4" data-aos="fade-up" data-aos-delay="200">
-                <a href="#pricing" onclick="trackLead()" class="w-full sm:w-auto px-8 py-4 bg-[#39FF14] text-black font-bold rounded-xl text-lg flex items-center justify-center gap-2 btn-glow transition-all">
-                    Get Instant Access Now
-                    <i data-lucide="zap" fill="currentColor"></i>
-                </a>
-                <a href="https://wa.me/923359473501" class="w-full sm:w-auto px-8 py-4 bg-slate-800 text-white font-semibold rounded-xl text-lg border border-slate-700 hover:bg-slate-700 transition-all">
-                    Chat with Mentor
-                </a>
-            </div>
-
-            <p class="mt-6 text-sm text-slate-500 flex items-center justify-center gap-2">
-                <i data-lucide="shield-check" class="text-green-500 w-4 h-4"></i>
-                100% Secure Access & Lifetime Support
-            </p>
-        </div>
-    </header>
-
-    <!-- 18-in-1 Grid Section -->
-    <section class="py-20 px-4 bg-[#0A0F1A]">
-        <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4" data-aos="fade-up">The Ultimate <span class="neon-text">18-in-1</span> Bundle</h2>
-                <p class="text-slate-400">Everything you need to launch a profitable digital business.</p>
-            </div>
-
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4" data-aos="zoom-in">
-                <!-- Grid Items -->
-                <div class="glass-card p-6 rounded-2xl text-center flex flex-col items-center hover:border-[#39FF14]/50 transition-all group">
-                    <div class="w-12 h-12 bg-green-500/10 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                        <i data-lucide="search" class="text-[#39FF14]"></i>
-                    </div>
-                    <span class="text-sm font-semibold">SEO Mastery</span>
-                </div>
-                <div class="glass-card p-6 rounded-2xl text-center flex flex-col items-center hover:border-[#39FF14]/50 transition-all group">
-                    <div class="w-12 h-12 bg-green-500/10 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                        <i data-lucide="facebook" class="text-[#39FF14]"></i>
-                    </div>
-                    <span class="text-sm font-semibold">FB Ads Expert</span>
-                </div>
-                <div class="glass-card p-6 rounded-2xl text-center flex flex-col items-center hover:border-[#39FF14]/50 transition-all group">
-                    <div class="w-12 h-12 bg-green-500/10 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                        <i data-lucide="trending-up" class="text-[#39FF14]"></i>
-                    </div>
-                    <span class="text-sm font-semibold">Affiliate Marketing</span>
-                </div>
-                <div class="glass-card p-6 rounded-2xl text-center flex flex-col items-center hover:border-[#39FF14]/50 transition-all group">
-                    <div class="w-12 h-12 bg-green-500/10 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                        <i data-lucide="google" class="text-[#39FF14]"></i>
-                    </div>
-                    <span class="text-sm font-semibold">Google Ads</span>
-                </div>
-                <div class="glass-card p-6 rounded-2xl text-center flex flex-col items-center hover:border-[#39FF14]/50 transition-all group">
-                    <div class="w-12 h-12 bg-green-500/10 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                        <i data-lucide="mail" class="text-[#39FF14]"></i>
-                    </div>
-                    <span class="text-sm font-semibold">Email Marketing</span>
-                </div>
-                <div class="glass-card p-6 rounded-2xl text-center flex flex-col items-center hover:border-[#39FF14]/50 transition-all group">
-                    <div class="w-12 h-12 bg-green-500/10 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                        <i data-lucide="cpu" class="text-[#39FF14]"></i>
-                    </div>
-                    <span class="text-sm font-semibold">Zapier Automate</span>
-                </div>
-                <!-- Adding a few more to highlight the "massive" nature -->
-                <div class="glass-card p-6 rounded-2xl text-center flex flex-col items-center hover:border-[#39FF14]/50 transition-all group">
-                    <div class="w-12 h-12 bg-green-500/10 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                        <i data-lucide="pen-tool" class="text-[#39FF14]"></i>
-                    </div>
-                    <span class="text-sm font-semibold">Copywriting</span>
-                </div>
-                <div class="glass-card p-6 rounded-2xl text-center flex flex-col items-center hover:border-[#39FF14]/50 transition-all group">
-                    <div class="w-12 h-12 bg-green-500/10 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                        <i data-lucide="youtube" class="text-[#39FF14]"></i>
-                    </div>
-                    <span class="text-sm font-semibold">Video Editing</span>
-                </div>
-                <div class="glass-card p-6 rounded-2xl text-center flex flex-col items-center hover:border-[#39FF14]/50 transition-all group">
-                    <div class="w-12 h-12 bg-green-500/10 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                        <i data-lucide="instagram" class="text-[#39FF14]"></i>
-                    </div>
-                    <span class="text-sm font-semibold">Instagram Growth</span>
-                </div>
-                <div class="glass-card p-6 rounded-2xl text-center flex flex-col items-center hover:border-[#39FF14]/50 transition-all group">
-                    <div class="w-12 h-12 bg-green-500/10 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                        <i data-lucide="shopping-cart" class="text-[#39FF14]"></i>
-                    </div>
-                    <span class="text-sm font-semibold">E-Commerce</span>
-                </div>
-                <div class="glass-card p-6 rounded-2xl text-center flex flex-col items-center hover:border-[#39FF14]/50 transition-all group">
-                    <div class="w-12 h-12 bg-green-500/10 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                        <i data-lucide="smartphone" class="text-[#39FF14]"></i>
-                    </div>
-                    <span class="text-sm font-semibold">TikTok Marketing</span>
-                </div>
-                <div class="glass-card p-6 rounded-2xl text-center flex flex-col items-center hover:border-[#39FF14]/50 transition-all group">
-                    <div class="w-12 h-12 bg-green-500/10 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                        <i data-lucide="layers" class="text-[#39FF14]"></i>
-                    </div>
-                    <span class="text-sm font-semibold">8+ More Courses</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Trust Factor: Before vs After / Earnings -->
-    <section class="py-20 px-4 bg-black">
+    <section class="relative pt-12 pb-20 px-4 text-center">
         <div class="max-w-4xl mx-auto">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold mb-4" data-aos="fade-up">Student Results & Trust</h2>
-                <p class="text-slate-400">Join 500+ students who are already scaling their income.</p>
-            </div>
+            <span class="bg-white/10 text-[#39FF14] px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-4 inline-block">
+                Pakistan's #1 Digital Skill Bundle
+            </span>
+            <h1 class="text-4xl md:text-7xl font-extrabold mb-6 leading-tight">
+                Ghar Baithay <span class="text-[#39FF14]">Mobile Se</span> Paisay Kamana Seekhain!
+            </h1>
+            <p class="text-gray-400 text-lg md:text-xl mb-8 max-w-2xl mx-auto">
+                18-in-1 Advance Digital Marketing & Affiliate Bundle. Join 1,000+ Students earning daily from social media.
+            </p>
 
-            <div class="grid md:grid-cols-2 gap-8 mb-16">
-                <!-- Result Placeholders -->
-                <div class="glass-card p-4 rounded-3xl border-[#39FF14]/20" data-aos="fade-right">
-                    <div class="bg-slate-800 w-full h-48 rounded-2xl flex items-center justify-center overflow-hidden mb-4">
-                        <!-- Placeholder for Earnings Screenshot -->
-                        <div class="text-center">
-                            <p class="text-slate-500 text-xs mb-2 italic">[Earnings Screenshot 1]</p>
-                            <p class="text-2xl font-bold text-green-400">+$2,450.00</p>
-                            <p class="text-[10px] text-slate-500">Verified Affiliate Commission</p>
-                        </div>
-                    </div>
-                    <h3 class="font-bold">Ahmed's Journey</h3>
-                    <p class="text-sm text-slate-400">"I was a struggling student. After finishing the FB Ads course from this bundle, I got my first client in 2 weeks!"</p>
-                </div>
-
-                <div class="glass-card p-4 rounded-3xl border-[#39FF14]/20" data-aos="fade-left">
-                    <div class="bg-slate-800 w-full h-48 rounded-2xl flex items-center justify-center overflow-hidden mb-4">
-                        <!-- Placeholder for Earnings Screenshot -->
-                        <div class="text-center">
-                            <p class="text-slate-500 text-xs mb-2 italic">[Earnings Screenshot 2]</p>
-                            <p class="text-2xl font-bold text-green-400">+$1,120.00</p>
-                            <p class="text-[10px] text-slate-500">Monthly Side Hustle Earning</p>
-                        </div>
-                    </div>
-                    <h3 class="font-bold">Sana's Success</h3>
-                    <p class="text-sm text-slate-400">"The SEO techniques are gold. My blog traffic increased by 400% in just one month. Highly recommended."</p>
-                </div>
-            </div>
-
-            <div class="flex flex-wrap justify-center gap-8 opacity-60 grayscale hover:grayscale-0 transition-all">
-                <!-- Badges -->
-                <div class="flex items-center gap-2">
-                    <i data-lucide="check-circle" class="text-green-500"></i>
-                    <span class="font-bold">VERIFIED SELLER</span>
-                </div>
-                <div class="flex items-center gap-2">
-                    <i data-lucide="lock" class="text-green-500"></i>
-                    <span class="font-bold">SECURE PAYMENT</span>
-                </div>
-                <div class="flex items-center gap-2">
-                    <i data-lucide="star" class="text-yellow-500 fill-yellow-500"></i>
-                    <span class="font-bold">4.9/5 RATING</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Core Benefits -->
-    <section class="py-20 px-4">
-        <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-            <div data-aos="fade-right">
-                <h2 class="text-3xl md:text-4xl font-bold mb-6">Financial Freedom is Not a Dream Anymore</h2>
-                <div class="space-y-6">
-                    <div class="flex gap-4">
-                        <div class="mt-1"><i data-lucide="target" class="text-[#39FF14]"></i></div>
-                        <div>
-                            <h4 class="font-bold">Skill Mastery</h4>
-                            <p class="text-slate-400 text-sm">Learn the high-income skills that big companies are looking for in 2024.</p>
-                        </div>
-                    </div>
-                    <div class="flex gap-4">
-                        <div class="mt-1"><i data-lucide="dollar-sign" class="text-[#39FF14]"></i></div>
-                        <div>
-                            <h4 class="font-bold">Daily Earnings</h4>
-                            <p class="text-slate-400 text-sm">Scale your earnings from zero to thousands of dollars daily with our proven system.</p>
-                        </div>
-                    </div>
-                    <div class="flex gap-4">
-                        <div class="mt-1"><i data-lucide="clock" class="text-[#39FF14]"></i></div>
-                        <div>
-                            <h4 class="font-bold">Quit the 9-5</h4>
-                            <p class="text-slate-400 text-sm">Build your own digital empire and work from anywhere in the world.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="relative" data-aos="fade-left">
-                <div class="absolute -inset-4 bg-[#39FF14]/10 blur-3xl rounded-full"></div>
-                <div class="glass-card p-8 rounded-3xl relative z-10 text-center">
-                    <h3 class="text-2xl font-bold mb-4">Who is this for?</h3>
-                    <ul class="text-left space-y-4">
-                        <li class="flex items-center gap-3"><i data-lucide="check" class="text-green-500 w-5 h-5"></i> Students seeking side income</li>
-                        <li class="flex items-center gap-3"><i data-lucide="check" class="text-green-500 w-5 h-5"></i> Professionals tired of 9-5 jobs</li>
-                        <li class="flex items-center gap-3"><i data-lucide="check" class="text-green-500 w-5 h-5"></i> Aspiring Affiliate Marketers</li>
-                        <li class="flex items-center gap-3"><i data-lucide="check" class="text-green-500 w-5 h-5"></i> Freelancers wanting to upskill</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Pricing / Checkout Section -->
-    <section id="pricing" class="py-20 px-4 bg-gradient-to-b from-transparent to-green-500/10">
-        <div class="max-w-2xl mx-auto text-center">
-            <div class="glass-card p-8 md:p-12 rounded-[2.5rem] border-[#39FF14]/30 relative overflow-hidden" data-aos="zoom-in">
-                <div class="absolute top-0 right-0 bg-[#39FF14] text-black text-xs font-bold px-6 py-2 rounded-bl-3xl">
-                    83% DISCOUNT
+            <div class="flex flex-col items-center justify-center space-y-4">
+                <div class="flex items-center space-x-4 mb-4">
+                    <span class="text-3xl md:text-5xl font-bold text-[#39FF14]">Rs. 1100</span>
+                    <span class="text-xl line-through text-gray-500">Rs. 6400</span>
+                    <span class="bg-red-600 text-white px-2 py-1 rounded text-xs font-bold">83% OFF</span>
                 </div>
                 
-                <h2 class="text-3xl font-bold mb-2">Ready to Start?</h2>
-                <p class="text-slate-400 mb-8">Get the entire 18-in-1 Digital Bundle today.</p>
-
-                <div class="mb-8">
-                    <span class="text-slate-500 line-through text-2xl mr-4">6,400 PKR</span>
-                    <span class="text-5xl font-extrabold text-white">1,100 <span class="text-xl">PKR</span></span>
-                </div>
-
-                <!-- Urgent Timer -->
-                <div class="flex justify-center gap-3 mb-10">
-                    <div class="timer-unit w-16 h-16 rounded-xl flex flex-col items-center justify-center">
-                        <span id="hours" class="text-xl font-bold">01</span>
-                        <span class="text-[10px] uppercase text-[#39FF14]">Hrs</span>
-                    </div>
-                    <div class="timer-unit w-16 h-16 rounded-xl flex flex-col items-center justify-center">
-                        <span id="minutes" class="text-xl font-bold">45</span>
-                        <span class="text-[10px] uppercase text-[#39FF14]">Min</span>
-                    </div>
-                    <div class="timer-unit w-16 h-16 rounded-xl flex flex-col items-center justify-center">
-                        <span id="seconds" class="text-xl font-bold">59</span>
-                        <span class="text-[10px] uppercase text-[#39FF14]">Sec</span>
-                    </div>
-                </div>
-
-                <button onclick="trackLead()" class="w-full py-5 bg-[#39FF14] text-black font-extrabold text-2xl rounded-2xl btn-glow shadow-lg transition-all mb-6">
-                    GET INSTANT ACCESS NOW
+                <button onclick="scrollToPayment()" class="pulse-animation bg-[#39FF14] text-black font-extrabold text-xl md:text-2xl px-8 py-4 rounded-xl w-full max-w-md hover:bg-[#32e012] transition-colors">
+                    👉 ABHI JOIN KARO AUR EARNING START KARO
                 </button>
-
-                <p class="text-sm text-slate-400">Lifetime Access • One-Time Payment • Instant Login</p>
+                <p class="text-sm text-gray-500 italic mt-2">✨ Limited Slots Available for this Price!</p>
             </div>
+        </div>
+    </section>
+
+    <!-- Emotional Pain Section -->
+    <section class="py-16 px-4 bg-white/5 border-y border-white/5">
+        <div class="max-w-3xl mx-auto text-center">
+            <h2 class="text-2xl md:text-3xl font-bold mb-10 text-red-500">Kya Aap Bhi In Masail Se Pareshan Hain?</h2>
+            <div class="grid gap-4 text-left">
+                <div class="bg-black p-4 rounded-lg flex items-center space-x-4 border-l-4 border-red-500">
+                    <i class="fas fa-times-circle text-red-500 text-xl"></i>
+                    <p class="text-lg">Online earning try ki magar ek rupaya bhi nahi kamaya?</p>
+                </div>
+                <div class="bg-black p-4 rounded-lg flex items-center space-x-4 border-l-4 border-red-500">
+                    <i class="fas fa-times-circle text-red-500 text-xl"></i>
+                    <p class="text-lg">9 to 5 job se tang aa chuke ho aur apna kaam karna chahte ho?</p>
+                </div>
+                <div class="bg-black p-4 rounded-lg flex items-center space-x-4 border-l-4 border-red-500">
+                    <i class="fas fa-times-circle text-red-500 text-xl"></i>
+                    <p class="text-lg">Paise kamane ka koi reliable aur asaan tareeqa nahi mil raha?</p>
+                </div>
+            </div>
+            <div class="mt-10">
+                <p class="text-xl text-[#39FF14] font-bold">Fikar Mat Karain! Hum Layen Hain Mukammal Solution.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section id="benefits" class="py-20 px-4">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-extrabold">Aap Is Course Mein Kya Seekhenge?</h2>
+                <div class="w-20 h-1 bg-[#39FF14] mx-auto mt-4"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="p-6 bg-white/5 rounded-2xl border border-white/10 hover:border-[#39FF14]/50 transition-all">
+                    <div class="w-12 h-12 bg-[#39FF14]/20 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-mobile-alt text-[#39FF14] text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Mobile Se Earning Ka System</h3>
+                    <p class="text-gray-400">Laptop ki zaroorat nahi, sirf apne mobile phone ko use karke monthly target achieve karein.</p>
+                </div>
+                <div class="p-6 bg-white/5 rounded-2xl border border-white/10 hover:border-[#39FF14]/50 transition-all">
+                    <div class="w-12 h-12 bg-[#39FF14]/20 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fab fa-facebook text-[#39FF14] text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Facebook + WhatsApp Strategy</h3>
+                    <p class="text-gray-400">Social media ko entertainment nahi, paisa kamane ki machine banayein step-by-step methods ke sath.</p>
+                </div>
+                <div class="p-6 bg-white/5 rounded-2xl border border-white/10 hover:border-[#39FF14]/50 transition-all">
+                    <div class="w-12 h-12 bg-[#39FF14]/20 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-bullhorn text-[#39FF14] text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Free Traffic Secrets</h3>
+                    <p class="text-gray-400">Bina kisi ad spend ke customers kese layein? Hum aapko organic growth sikhayeinge.</p>
+                </div>
+                <div class="p-6 bg-white/5 rounded-2xl border border-white/10 hover:border-[#39FF14]/50 transition-all">
+                    <div class="w-12 h-12 bg-[#39FF14]/20 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-chart-line text-[#39FF14] text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Daily Earning Roadmap</h3>
+                    <p class="text-gray-400">Pehle din se kaam kese shuru karna hai aur 30 din mein result kese dekhne hain.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Earnings Dashboard (Proof) -->
+    <section class="py-16 px-4 bg-gradient-to-b from-black to-[#0a0f0a]">
+        <div class="max-w-4xl mx-auto border neon-border rounded-3xl overflow-hidden bg-black">
+            <div class="p-6 border-b border-white/10 flex justify-between items-center">
+                <h3 class="font-bold text-lg"><i class="fas fa-wallet mr-2 text-[#39FF14]"></i> Your Potential Earnings</h3>
+                <span class="text-xs bg-[#39FF14]/10 text-[#39FF14] px-2 py-1 rounded">Sample Data</span>
+            </div>
+            <div class="p-8 grid grid-cols-2 md:grid-cols-3 gap-6">
+                <div class="text-center">
+                    <p class="text-gray-500 text-xs mb-1">Total Commission</p>
+                    <p class="text-2xl md:text-4xl font-bold text-[#39FF14]">$4,582.00</p>
+                </div>
+                <div class="text-center">
+                    <p class="text-gray-500 text-xs mb-1">Active Referrals</p>
+                    <p class="text-2xl md:text-4xl font-bold text-white">124</p>
+                </div>
+                <div class="text-center col-span-2 md:col-span-1">
+                    <p class="text-gray-500 text-xs mb-1">Current Balance</p>
+                    <p class="text-2xl md:text-4xl font-bold gradient-gold">$1,250.50</p>
+                </div>
+            </div>
+            <div class="p-4 bg-white/5 text-center">
+                <p class="text-xs text-gray-500 italic">Note: Ye dashboard ek sample hai, results aapki mehnat par depend karte hain.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Payment & Trust Section -->
+    <section id="payment" class="py-20 px-4 bg-black">
+        <div class="max-w-2xl mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-8">How to Pay? (Asaan Tareeqa)</h2>
+            <div class="bg-white/5 p-8 rounded-3xl border border-white/10">
+                <div class="flex justify-center space-x-6 mb-8">
+                    <div class="text-center">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/EasyPaisa_Logo.png/640px-EasyPaisa_Logo.png" alt="EasyPaisa" class="h-12 w-auto mx-auto mb-2 filter grayscale hover:grayscale-0 transition cursor-pointer">
+                        <p class="text-[10px] uppercase font-bold text-gray-400">EasyPaisa</p>
+                    </div>
+                    <div class="text-center">
+                        <img src="https://logos-world.net/wp-content/uploads/2021/03/JazzCash-Logo.png" alt="JazzCash" class="h-12 w-auto mx-auto mb-2 filter grayscale hover:grayscale-0 transition cursor-pointer">
+                        <p class="text-[10px] uppercase font-bold text-gray-400">JazzCash</p>
+                    </div>
+                </div>
+                
+                <div class="space-y-4 mb-8">
+                    <div class="flex justify-between border-b border-white/5 pb-2">
+                        <span class="text-gray-400">Course Price</span>
+                        <span class="font-bold">Rs. 6400</span>
+                    </div>
+                    <div class="flex justify-between border-b border-white/5 pb-2">
+                        <span class="text-gray-400">Discount Code</span>
+                        <span class="text-[#39FF14] font-bold">- Rs. 5300</span>
+                    </div>
+                    <div class="flex justify-between pt-2">
+                        <span class="text-xl font-bold">Total Payable</span>
+                        <span class="text-2xl font-extrabold text-[#39FF14]">Rs. 1100</span>
+                    </div>
+                </div>
+
+                <button onclick="whatsappOrder()" class="bg-[#39FF14] text-black font-black py-4 px-8 rounded-xl w-full text-xl flex items-center justify-center space-x-2 shadow-[0_0_20px_rgba(57,255,20,0.3)]">
+                    <i class="fab fa-whatsapp text-2xl"></i>
+                    <span>WHATSAPP PAR PAY KARAIN</span>
+                </button>
+                <p class="mt-4 text-xs text-gray-500">Available 24/7 for instant enrollment</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 100% Guarantee Section -->
+    <section class="py-16 px-4">
+        <div class="max-w-4xl mx-auto bg-[#39FF14]/10 border-2 border-dashed border-[#39FF14] p-10 rounded-3xl text-center">
+            <div class="mb-6">
+                <i class="fas fa-shield-alt text-6xl text-[#39FF14]"></i>
+            </div>
+            <h2 class="text-3xl font-bold mb-4">7 Din Ki Money Back Guarantee!</h2>
+            <p class="text-lg text-gray-300 max-w-2xl mx-auto">
+                Hum itne confident hain ke ye course aapki life badal dega ke hum aapko 7 days ki guarantee dete hain. Agar aapko content pasand na aaye ya earning shuru na ho, to bina kisi sawal ke apna <b>Full Refund</b> wapis le lain. 
+            </p>
+            <p class="mt-6 text-xl font-bold text-[#39FF14]">0% Risk - 100% Value</p>
         </div>
     </section>
 
     <!-- FAQ Section -->
-    <section class="py-20 px-4">
+    <section class="py-20 px-4 bg-white/5">
         <div class="max-w-3xl mx-auto">
-            <h2 class="text-3xl font-bold text-center mb-12" data-aos="fade-up">Frequently Asked Questions</h2>
-            
+            <h2 class="text-3xl font-bold text-center mb-12">Zaroori Sawalaat (FAQs)</h2>
             <div class="space-y-4">
-                <div class="glass-card p-6 rounded-2xl" data-aos="fade-up">
-                    <h4 class="font-bold flex justify-between items-center cursor-pointer">
-                        Is this for beginners?
-                        <i data-lucide="plus" class="text-[#39FF14] w-5 h-5"></i>
-                    </h4>
-                    <p class="text-slate-400 text-sm mt-4">Yes, absolutely! Every course starts from the basics and goes to an advanced level.</p>
-                </div>
-                <div class="glass-card p-6 rounded-2xl" data-aos="fade-up">
-                    <h4 class="font-bold flex justify-between items-center cursor-pointer">
-                        Is there personal support?
-                        <i data-lucide="plus" class="text-[#39FF14] w-5 h-5"></i>
-                    </h4>
-                    <p class="text-slate-400 text-sm mt-4">Yes, we provide 24/7 support via WhatsApp and our dedicated mentor group.</p>
-                </div>
-                <div class="glass-card p-6 rounded-2xl" data-aos="fade-up">
-                    <h4 class="font-bold flex justify-between items-center cursor-pointer">
-                        Will I get lifetime access?
-                        <i data-lucide="plus" class="text-[#39FF14] w-5 h-5"></i>
-                    </h4>
-                    <p class="text-slate-400 text-sm mt-4">Yes, pay once and enjoy lifetime access to all future updates and course content.</p>
-                </div>
+                <details class="group bg-black border border-white/10 rounded-xl overflow-hidden">
+                    <summary class="p-5 font-bold cursor-pointer list-none flex justify-between items-center">
+                        Kya ye real work hai?
+                        <i class="fas fa-plus group-open:rotate-45 transition"></i>
+                    </summary>
+                    <div class="p-5 border-t border-white/10 text-gray-400">
+                        Ji bilkul! Ye mukammal skills-based training hai jo aaj ke digital dor mein sabse zyada demand mein hain.
+                    </div>
+                </details>
+                <details class="group bg-black border border-white/10 rounded-xl overflow-hidden">
+                    <summary class="p-5 font-bold cursor-pointer list-none flex justify-between items-center">
+                        Main beginner hoon, kya main kar sakta hoon?
+                        <i class="fas fa-plus group-open:rotate-45 transition"></i>
+                    </summary>
+                    <div class="p-5 border-t border-white/10 text-gray-400">
+                        Ye bundle design hi beginners ke liye kiya gaya hai. Har cheez step-by-step sikhayi gayi hai.
+                    </div>
+                </details>
+                <details class="group bg-black border border-white/10 rounded-xl overflow-hidden">
+                    <summary class="p-5 font-bold cursor-pointer list-none flex justify-between items-center">
+                        Paisa kese milega?
+                        <i class="fas fa-plus group-open:rotate-45 transition"></i>
+                    </summary>
+                    <div class="p-5 border-t border-white/10 text-gray-400">
+                        Aap apni earning direct EasyPaisa, JazzCash ya Bank account mein mangwa sakenge.
+                    </div>
+                </details>
             </div>
         </div>
     </section>
 
+    <!-- Final CTA -->
+    <section class="py-20 px-4 text-center bg-[#39FF14]">
+        <h2 class="text-black text-4xl font-black mb-6">OFFER KHATAM HONE WALI HAI!</h2>
+        <p class="text-black/80 text-xl font-bold mb-10 italic">Abhi action lein warna price Rs. 6400 ho jayegi.</p>
+        <button onclick="scrollToPayment()" class="bg-black text-white font-black text-2xl px-12 py-5 rounded-full pulse-animation shadow-2xl">
+            🔥 ABHI LE LO - JUST RS. 1100
+        </button>
+    </section>
+
     <!-- Footer -->
-    <footer class="py-12 border-t border-slate-800 text-center px-4">
-        <p class="text-2xl font-bold mb-4">02<span class="text-[#39FF14]">earning</span></p>
-        <p class="text-slate-500 text-sm">© 2024 02earning Digital Academy. All rights reserved.</p>
-        <div class="flex justify-center gap-6 mt-6">
-            <a href="#" class="text-slate-500 hover:text-white text-xs">Privacy Policy</a>
-            <a href="#" class="text-slate-500 hover:text-white text-xs">Terms of Service</a>
-            <a href="#" class="text-slate-500 hover:text-white text-xs">Refund Policy</a>
-        </div>
+    <footer class="py-10 px-4 border-t border-white/10 text-center text-gray-500 text-sm">
+        <p class="mb-2">&copy; 2024 02earning Digital Academy. All Rights Reserved.</p>
+        <p>Results may vary. We do not guarantee fixed income, success depends on individual effort.</p>
     </footer>
 
-    <script>
-        // Initialize Icons
-        lucide.createIcons();
+    <!-- Floating WhatsApp -->
+    <a href="https://wa.me/923359473501" class="fixed bottom-6 right-6 bg-green-500 p-4 rounded-full shadow-2xl z-[100] pulse-animation">
+        <i class="fab fa-whatsapp text-white text-3xl"></i>
+    </a>
 
-        // Initialize AOS
-        AOS.init({
-            duration: 800,
-            once: true,
-            offset: 50
+    <!-- Sales Popup -->
+    <div id="sales-popup" class="sales-popup fixed bottom-6 left-6 bg-white text-black p-3 rounded-lg shadow-2xl flex items-center space-x-3 z-[100] max-w-[280px]">
+        <div class="w-10 h-10 bg-[#39FF14] rounded-full flex items-center justify-center flex-shrink-0">
+            <i class="fas fa-shopping-cart text-xs"></i>
+        </div>
+        <div>
+            <p class="text-[10px] font-bold text-gray-500 uppercase">Recent Enrollment</p>
+            <p id="popup-text" class="text-xs font-bold leading-tight">Ahmed from Lahore just joined!</p>
+        </div>
+    </div>
+
+    <!-- Exit Intent Modal -->
+    <div id="exit-modal" class="hidden fixed inset-0 bg-black/90 z-[200] flex items-center justify-center p-4">
+        <div class="bg-white text-black rounded-3xl p-8 max-w-md w-full text-center relative">
+            <button onclick="closeExitModal()" class="absolute top-4 right-4 text-gray-400 hover:text-black">
+                <i class="fas fa-times text-xl"></i>
+            </button>
+            <h2 class="text-3xl font-black mb-2 text-red-600">WAIT! RUKIYE...</h2>
+            <p class="text-gray-600 mb-6">Course join karne se pehle ye <b>Free E-book</b> toh le jayein!</p>
+            <div class="bg-gray-100 p-4 rounded-xl mb-6">
+                <i class="fas fa-book-open text-4xl text-blue-600 mb-2"></i>
+                <p class="font-bold">"Online Earning Ke 5 Chupay Huay Raaz"</p>
+            </div>
+            <button onclick="whatsappOrder()" class="bg-[#39FF14] text-black w-full py-4 rounded-xl font-black mb-2">
+                FREE E-BOOK CHAHIYE
+            </button>
+            <p class="text-[10px] text-gray-400">Clicking will open WhatsApp</p>
+        </div>
+    </div>
+
+    <script>
+        // Timer Logic
+        function startTimer() {
+            let timeLeft = 15 * 60; // 15 minutes
+            const timerDisplay = document.getElementById('timer-top');
+            
+            // Check local storage for persistent timer
+            if (localStorage.getItem('02earning_timer')) {
+                const savedTime = localStorage.getItem('02earning_timer');
+                const now = Math.floor(Date.now() / 1000);
+                const diff = now - parseInt(localStorage.getItem('02earning_timestamp'));
+                timeLeft = Math.max(0, parseInt(savedTime) - diff);
+            } else {
+                localStorage.setItem('02earning_timestamp', Math.floor(Date.now() / 1000).toString());
+                localStorage.setItem('02earning_timer', timeLeft.toString());
+            }
+
+            const interval = setInterval(() => {
+                const minutes = Math.floor(timeLeft / 60);
+                const seconds = timeLeft % 60;
+                timerDisplay.innerText = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+                
+                if (timeLeft <= 0) {
+                    clearInterval(interval);
+                    timerDisplay.innerText = "00:00";
+                }
+                timeLeft--;
+                // Update local storage occasionally or on beforeunload
+            }, 1000);
+        }
+
+        // Sales Popup Loop
+        const names = ["Zeeshan", "Fatima", "Ali", "Usman", "Sana", "Irfan", "Hamza", "Kiran"];
+        const cities = ["Karachi", "Lahore", "Islamabad", "Faisalabad", "Multan", "Peshawar"];
+        
+        function showSalesPopup() {
+            const popup = document.getElementById('sales-popup');
+            const text = document.getElementById('popup-text');
+            const randomName = names[Math.floor(Math.random() * names.length)];
+            const randomCity = cities[Math.floor(Math.random() * cities.length)];
+            
+            text.innerText = `${randomName} from ${randomCity} just joined!`;
+            popup.classList.add('show');
+            
+            setTimeout(() => {
+                popup.classList.remove('show');
+            }, 4000);
+        }
+
+        // Exit Intent Logic
+        let exitTriggered = false;
+        document.addEventListener('mouseleave', (e) => {
+            if (e.clientY < 0 && !exitTriggered) {
+                document.getElementById('exit-modal').classList.remove('hidden');
+                exitTriggered = true;
+            }
         });
 
-        // Simple Countdown Timer Logic
-        let h = 1, m = 45, s = 59;
-        setInterval(() => {
-            if (s > 0) s--;
-            else {
-                s = 59;
-                if (m > 0) m--;
-                else {
-                    m = 59;
-                    if (h > 0) h--;
-                }
-            }
-            document.getElementById('hours').innerText = String(h).padStart(2, '0');
-            document.getElementById('minutes').innerText = String(m).padStart(2, '0');
-            document.getElementById('seconds').innerText = String(s).padStart(2, '0');
-        }, 1000);
+        function closeExitModal() {
+            document.getElementById('exit-modal').classList.add('hidden');
+        }
+
+        // Helper Functions
+        function scrollToPayment() {
+            document.getElementById('payment').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function whatsappOrder() {
+            const message = encodeURIComponent("Hello! I want to join the 18-in-1 Marketing Bundle for Rs. 1100. Please send me payment details.");
+            window.location.href = `https://wa.me/923359473501?text=${message}`;
+        }
+
+        // Initialize
+        window.onload = () => {
+            startTimer();
+            setInterval(showSalesPopup, 8000);
+
+            // Reveal animations on scroll
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+        };
     </script>
 </body>
 </html>
