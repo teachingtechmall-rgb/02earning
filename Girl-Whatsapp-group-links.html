@@ -767,6 +767,101 @@ document.getElementById("promo-popup").addEventListener("click", function(e){
 });
 </script>
 
+
+    <!-- EXACT STYLE POPUP -->
+<div id="promo-popup" class="fixed inset-0 flex items-center justify-center z-[9999] hidden">
+
+  <!-- DARK BACKGROUND -->
+  <div class="absolute inset-0 bg-[#020617]/90"></div>
+
+  <!-- CARD -->
+  <div class="relative w-[90%] max-w-sm rounded-[28px] overflow-hidden shadow-2xl bg-white animate__animated animate__zoomIn">
+
+    <!-- TOP RED HEADER -->
+    <div class="bg-[#dc2626] px-6 pt-5 pb-7 text-center relative">
+
+      <!-- LIVE BADGE -->
+      <div class="inline-flex items-center gap-2 bg-white/20 px-3 py-1 rounded-full mb-3">
+        <span class="w-2 h-2 bg-white rounded-full animate-ping"></span>
+        <span class="text-white text-[10px] font-bold tracking-widest uppercase">Live Opportunity</span>
+      </div>
+
+      <!-- TITLE -->
+      <h2 class="text-white text-3xl font-extrabold italic tracking-tight flex justify-center items-center gap-2">
+        RUKO! 🚀
+      </h2>
+
+      <!-- CLOSE -->
+      <button onclick="closePopup()" class="absolute top-3 right-4 text-white/70 text-xl">
+        ✕
+      </button>
+    </div>
+
+    <!-- CONTENT -->
+    <div class="px-6 py-7 text-center">
+
+      <!-- HEADING -->
+      <h3 class="text-xl font-extrabold text-slate-900 leading-snug mb-3">
+        Apka WhatsApp Group <br>
+        <span class="text-red-500">Viral Ho Jayega!</span>
+      </h3>
+
+      <!-- TEXT -->
+      <p class="text-sm text-slate-500 mb-6">
+        Join karein hamari premium listing aur payein <span class="font-bold text-slate-800">unlimited members</span> for your group.
+      </p>
+
+      <!-- PRICE BOX -->
+      <div class="bg-slate-50 border border-slate-200 rounded-2xl p-5 mb-6">
+        <div class="text-4xl font-extrabold text-slate-900">
+          300 <span class="text-lg text-slate-400 font-bold italic">PKR</span>
+        </div>
+        <p class="text-green-600 text-[11px] font-bold mt-2">
+          FOR 1000+ REAL REACH EVERY DAY
+        </p>
+      </div>
+
+      <!-- BUTTON -->
+      <a href="https://wa.me/923359473501?text=I%20want%20to%20promote%20my%20group"
+         target="_blank"
+         class="block w-full bg-green-600 hover:bg-green-700 text-white font-bold py-4 rounded-2xl text-lg shadow-lg transition">
+         Promote Group Now →
+      </a>
+
+      <!-- SKIP -->
+      <button onclick="closePopup()" class="mt-5 text-xs text-slate-400 font-bold tracking-widest uppercase">
+        No, Skip This Viral Hack
+      </button>
+
+    </div>
+  </div>
+</div>
+
+<!-- SCRIPT -->
+<script>
+let popupShown = false;
+
+function showPopup() {
+  if (popupShown) return;
+  popupShown = true;
+  document.getElementById("promo-popup").classList.remove("hidden");
+}
+
+function closePopup() {
+  document.getElementById("promo-popup").classList.add("hidden");
+}
+
+// SHOW AFTER 30 SECONDS
+setTimeout(showPopup, 10000);
+
+// CLICK OUTSIDE CLOSE
+document.getElementById("promo-popup").addEventListener("click", function(e){
+  if(e.target === this){
+    closePopup();
+  }
+});
+</script>
+
     
 </body>  
 </html>
