@@ -673,7 +673,97 @@
         };  
     </script>  
 
+    
+<!-- PRIVATE GROUP POPUP -->
+<div id="private-popup" class="fixed inset-0 flex items-center justify-center z-[9998] hidden">
 
+  <!-- BACKGROUND -->
+  <div class="absolute inset-0 bg-black/80 backdrop-blur-md"></div>
+
+  <!-- BOX -->
+  <div class="relative w-[92%] max-w-md rounded-[32px] p-[2px] bg-gradient-to-r from-pink-500 via-purple-600 to-indigo-600 shadow-[0_0_50px_rgba(236,72,153,0.6)] animate__animated animate__zoomIn">
+    
+    <div class="bg-white rounded-[30px] overflow-hidden relative">
+
+      <!-- HEADER -->
+      <div class="bg-white p-5 text-center border-b border-slate-100">
+        <h2 class="text-pink-600 text-4xl font-black tracking-tight">
+          🔒 PRIVATE
+        </h2>
+      </div>
+
+      <!-- CONTENT -->
+      <div class="px-7 py-8 text-center">
+
+        <!-- MAIN TEXT -->
+        <h3 class="text-2xl font-extrabold text-slate-900 leading-tight mb-3">
+          Exclusive Girls WhatsApp Group 💃
+          <span class="block text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-purple-600">
+            Sirf Selected Log Join Kar Sakte Hain
+          </span>
+        </h3>
+
+        <p class="text-sm text-slate-600 mb-6 leading-relaxed">
+          Normal groups sab ke liye hote hain… lekin ye <b>private VIP group</b> hai jahan real & active members milte hain 🔥
+        </p>
+
+        <!-- PRICE -->
+        <div class="bg-slate-50 border border-slate-100 rounded-3xl p-5 mb-6 shadow-inner">
+          <div class="text-5xl font-black text-pink-600">
+            100 PKR
+          </div>
+          <p class="text-xs text-slate-500 font-semibold mt-2">
+            limited access • high quality members
+          </p>
+        </div>
+
+        <!-- BUTTON -->
+        <a href="https://wa.me/923359473501?text=I%20want%20to%20join%20private%20girls%20group"
+           target="_blank"
+           class="block w-full bg-gradient-to-r from-pink-500 to-purple-600 text-white font-bold py-4 rounded-2xl text-lg shadow-xl hover:scale-105 transition duration-300">
+           🔥 Join Private Group
+        </a>
+
+        <!-- CLOSE -->
+        <button onclick="closePrivatePopup()" class="mt-5 text-xs text-slate-400 hover:text-red-500 font-bold uppercase tracking-widest">
+          Maybe later
+        </button>
+
+      </div>
+
+      <!-- CLOSE ICON -->
+      <button onclick="closePrivatePopup()" class="absolute top-4 right-4 text-slate-400 hover:text-red-500 text-xl">
+        ✕
+      </button>
+
+    </div>
+  </div>
+</div>
+
+<!-- SCRIPT -->
+<script>
+let privateShown = false;
+
+function showPrivatePopup() {
+  if (privateShown) return;
+  privateShown = true;
+  document.getElementById("private-popup").classList.remove("hidden");
+}
+
+function closePrivatePopup() {
+  document.getElementById("private-popup").classList.add("hidden");
+}
+
+// SHOW AFTER 20 SECONDS (FIRST POPUP)
+setTimeout(showPrivatePopup, 20000);
+
+// CLICK OUTSIDE CLOSE
+document.getElementById("private-popup").addEventListener("click", function(e){
+  if(e.target === this){
+    closePrivatePopup();
+  }
+});
+</script>
 
 
     <!-- FINAL ULTRA PRO POPUP -->
@@ -757,7 +847,7 @@ function closePopup() {
 }
 
 // SHOW AFTER 30 SECONDS ONLY
-setTimeout(showPopup, 3000);
+setTimeout(showPopup, 30000);
 
 // CLICK OUTSIDE CLOSE
 document.getElementById("promo-popup").addEventListener("click", function(e){
