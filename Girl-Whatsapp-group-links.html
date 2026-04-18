@@ -676,69 +676,66 @@
 
 
 
-    <!-- EXACT STYLE POPUP -->
+    <!-- FINAL ULTRA PRO POPUP -->
 <div id="promo-popup" class="fixed inset-0 flex items-center justify-center z-[9999] hidden">
 
-  <!-- DARK BACKGROUND -->
-  <div class="absolute inset-0 bg-[#020617]/90"></div>
+  <!-- BACKGROUND -->
+  <div class="absolute inset-0 bg-black/80 backdrop-blur-md"></div>
 
-  <!-- CARD -->
-  <div class="relative w-[90%] max-w-sm rounded-[28px] overflow-hidden shadow-2xl bg-white animate__animated animate__zoomIn">
+  <!-- BOX -->
+  <div class="relative w-[92%] max-w-md rounded-[32px] p-[2px] bg-gradient-to-r from-purple-600 via-pink-500 to-indigo-600 shadow-[0_0_50px_rgba(139,92,246,0.7)] animate__animated animate__zoomIn">
+    
+    <div class="bg-white rounded-[30px] overflow-hidden relative">
 
-    <!-- TOP RED HEADER -->
-    <div class="bg-[#dc2626] px-6 pt-5 pb-7 text-center relative">
-
-      <!-- LIVE BADGE -->
-      <div class="inline-flex items-center gap-2 bg-white/20 px-3 py-1 rounded-full mb-3">
-        <span class="w-2 h-2 bg-white rounded-full animate-ping"></span>
-        <span class="text-white text-[10px] font-bold tracking-widest uppercase">Live Opportunity</span>
+      <!-- STOP HEADER (UPDATED) -->
+      <div class="bg-white p-5 text-center border-b border-slate-100">
+        <h2 class="text-red-600 text-4xl font-black tracking-tight">
+          🚫 STOP
+        </h2>
       </div>
 
-      <!-- TITLE -->
-      <h2 class="text-white text-3xl font-extrabold italic tracking-tight flex justify-center items-center gap-2">
-        RUKO! 🚀
-      </h2>
+      <!-- CONTENT -->
+      <div class="px-7 py-8 text-center">
 
-      <!-- CLOSE -->
-      <button onclick="closePopup()" class="absolute top-3 right-4 text-white/70 text-xl">
-        ✕
-      </button>
-    </div>
+        <!-- MAIN TEXT -->
+        <h3 class="text-2xl font-extrabold text-slate-900 leading-tight mb-3">
+          Apka WhatsApp Group
+          <span class="block text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-500">
+            Viral Ho Sakta Hai 🚀
+          </span>
+        </h3>
 
-    <!-- CONTENT -->
-    <div class="px-6 py-7 text-center">
-
-      <!-- HEADING -->
-      <h3 class="text-xl font-extrabold text-slate-900 leading-snug mb-3">
-        Apka WhatsApp Group <br>
-        <span class="text-red-500">Viral Ho Jayega!</span>
-      </h3>
-
-      <!-- TEXT -->
-      <p class="text-sm text-slate-500 mb-6">
-        Join karein hamari premium listing aur payein <span class="font-bold text-slate-800">unlimited members</span> for your group.
-      </p>
-
-      <!-- PRICE BOX -->
-      <div class="bg-slate-50 border border-slate-200 rounded-2xl p-5 mb-6">
-        <div class="text-4xl font-extrabold text-slate-900">
-          300 <span class="text-lg text-slate-400 font-bold italic">PKR</span>
-        </div>
-        <p class="text-green-600 text-[11px] font-bold mt-2">
-          FOR 1000+ REAL REACH EVERY DAY
+        <p class="text-sm text-slate-600 mb-6 leading-relaxed">
+          Roz hazaron log groups join karte hain… agar aaj promote nahi kiya to aapka group peeche reh jayega ⚡
         </p>
+
+        <!-- PRICE -->
+        <div class="bg-slate-50 border border-slate-100 rounded-3xl p-5 mb-6 shadow-inner">
+          <div class="text-5xl font-black text-green-600">
+            300 PKR
+          </div>
+          <p class="text-xs text-slate-500 font-semibold mt-2">
+            for 1000+ real members reach
+          </p>
+        </div>
+
+        <!-- BUTTON -->
+        <a href="https://wa.me/923359473501?text=I%20want%20to%20promote%20my%20group"
+           target="_blank"
+           class="block w-full bg-gradient-to-r from-green-500 to-emerald-600 text-white font-bold py-4 rounded-2xl text-lg shadow-xl hover:scale-105 transition duration-300">
+           🚀 Promote Your Group
+        </a>
+
+        <!-- CLOSE TEXT -->
+        <button onclick="closePopup()" class="mt-5 text-xs text-slate-400 hover:text-red-500 font-bold uppercase tracking-widest">
+          No thanks
+        </button>
+
       </div>
 
-      <!-- BUTTON -->
-      <a href="https://wa.me/923359473501?text=I%20want%20to%20promote%20my%20group"
-         target="_blank"
-         class="block w-full bg-green-600 hover:bg-green-700 text-white font-bold py-4 rounded-2xl text-lg shadow-lg transition">
-         Promote Group Now →
-      </a>
-
-      <!-- SKIP -->
-      <button onclick="closePopup()" class="mt-5 text-xs text-slate-400 font-bold tracking-widest uppercase">
-        No, Skip This Viral Hack
+      <!-- CLOSE ICON -->
+      <button onclick="closePopup()" class="absolute top-4 right-4 text-slate-400 hover:text-red-500 text-xl">
+        ✕
       </button>
 
     </div>
@@ -759,8 +756,8 @@ function closePopup() {
   document.getElementById("promo-popup").classList.add("hidden");
 }
 
-// SHOW AFTER 30 SECONDS
-setTimeout(showPopup, 1000);
+// SHOW AFTER 30 SECONDS ONLY
+setTimeout(showPopup, 30000);
 
 // CLICK OUTSIDE CLOSE
 document.getElementById("promo-popup").addEventListener("click", function(e){
