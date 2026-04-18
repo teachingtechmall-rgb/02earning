@@ -672,5 +672,72 @@
             setInterval(showNotification, 15000);  
         };  
     </script>  
+
+<!-- PROMOTION POPUP -->
+<div id="promo-popup" class="fixed inset-0 bg-black/60 flex items-center justify-center z-50 hidden">
+  <div class="bg-white rounded-3xl p-6 w-[90%] max-w-sm text-center shadow-2xl relative animate__animated animate__zoomIn">
+    
+    <!-- STOP LABEL -->
+    <div class="bg-red-600 text-white text-xs font-bold px-4 py-1 rounded-full inline-block mb-3 uppercase">
+      🚫 STOP
+    </div>
+
+    <!-- FOMO TEXT -->
+    <h2 class="text-lg font-extrabold text-slate-800 mb-2">
+      Apka WhatsApp Group Viral ho sakta hai 🚀
+    </h2>
+    <p class="text-sm text-slate-600 mb-4">
+      Roz hazaron log yahan groups join karte hain… apna group list karwao aur members instantly pao ⚡
+    </p>
+
+    <!-- PRICE -->
+    <div class="text-3xl font-black text-green-600 mb-1">
+      300 PKR
+    </div>
+    <p class="text-xs text-slate-500 mb-4">
+      for 1000+ members reach
+    </p>
+
+    <!-- BUTTON -->
+    <a href="https://wa.me/923359473501" target="_blank"
+       class="block bg-green-500 hover:bg-green-600 text-white font-bold py-3 rounded-2xl shadow-xl transition">
+       Promote Your Group
+    </a>
+
+    <!-- CLOSE BUTTON -->
+    <button onclick="closePopup()" class="absolute top-2 right-3 text-slate-400 text-xl font-bold">
+      ×
+    </button>
+  </div>
+</div>
+
+<!-- POPUP SCRIPT -->
+<script>
+let popupShown = false;
+
+function showPopup() {
+  document.getElementById("promo-popup").classList.remove("hidden");
+}
+
+function closePopup() {
+  document.getElementById("promo-popup").classList.add("hidden");
+}
+
+// Show after 50% scroll
+window.addEventListener("scroll", function () {
+  if (popupShown) return;
+
+  let scrollTop = window.scrollY;
+  let docHeight = document.body.scrollHeight - window.innerHeight;
+  let scrollPercent = (scrollTop / docHeight) * 100;
+
+  if (scrollPercent > 50) {
+    popupShown = true;
+    showPopup();
+  }
+});
+</script>
+
+    
 </body>  
 </html>
