@@ -674,92 +674,69 @@
     </script>  
 
 <!-- PROMOTION POPUP -->
-<div id="promo-popup" class="fixed inset-0 bg-black/70 flex items-center justify-center z-50 hidden p-4">
-        <div class="glass-effect rounded-[2.5rem] overflow-hidden w-full max-w-sm text-center shadow-[0_20px_50px_rgba(0,0,0,0.3)] relative animate__animated animate__backInUp border border-white/20">
-            
-            <!-- TOP DECORATION LINE -->
-            <div class="h-2 w-full bg-red-600"></div>
-
-            <div class="p-8">
-                <!-- STOP LABEL -->
-                <div class="bg-red-100 text-red-600 text-xs font-black px-4 py-1.5 rounded-full inline-flex items-center gap-1 mb-4 uppercase tracking-wider border border-red-200">
-                    <span class="animate-pulse">🛑</span> ATTENTION
-                </div>
-
-                <!-- MAIN HEADING (RED COLOR AS REQUESTED) -->
-                <h2 class="text-2xl font-black text-red-600 mb-3 leading-tight uppercase italic">
-                    STOP! <br>
-                    <span class="text-slate-800 not-italic">Apka WhatsApp Group Viral ho sakta hai 🚀</span>
-                </h2>
-
-                <p class="text-[15px] text-slate-600 mb-6 leading-relaxed">
-                    Roz hazaron log yahan groups join karte hain… apna group list karwao aur members <strong>instantly</strong> pao ⚡
-                </p>
-
-                <!-- PRICE TAG -->
-                <div class="bg-green-50 rounded-2xl py-4 mb-6 border border-green-100">
-                    <div class="text-4xl font-black text-green-600 mb-1">
-                        300 PKR
-                    </div>
-                    <p class="text-xs font-bold text-green-700 uppercase tracking-widest">
-                        For 1000+ Real Members Reach
-                    </p>
-                </div>
-
-                <!-- CTA BUTTON -->
-                <a href="https://wa.me/923359473501" target="_blank"
-                   class="pulse-button block bg-green-500 hover:bg-green-600 text-white font-extrabold py-4 rounded-2xl shadow-lg shadow-green-200 transition-all duration-300 transform hover:-translate-y-1 text-lg">
-                    Promote Your Group Now
-                </a>
-
-                <p class="mt-4 text-[10px] text-slate-400 uppercase tracking-widest font-medium">
-                    Limited Time Offer • Trusted by 500+ Admins
-                </p>
-            </div>
-
-            <!-- CLOSE BUTTON -->
-            <button onclick="closePopup()" class="absolute top-4 right-5 text-slate-400 hover:text-red-500 transition-colors text-2xl font-light">
-                ✕
-            </button>
-        </div>
+<div id="promo-popup" class="fixed inset-0 bg-black/60 flex items-center justify-center z-50 hidden">
+  <div class="bg-white rounded-3xl p-6 w-[90%] max-w-sm text-center shadow-2xl relative animate__animated animate__zoomIn">
+    
+    <!-- STOP LABEL -->
+    <div class="bg-red-600 text-white text-xs font-bold px-4 py-1 rounded-full inline-block mb-3 uppercase">
+      🚫 STOP
     </div>
 
-    <script>
-        let popupShown = false;
+    <!-- FOMO TEXT -->
+    <h2 class="text-lg font-extrabold text-slate-800 mb-2">
+      Apka WhatsApp Group Viral ho sakta hai 🚀
+    </h2>
+    <p class="text-sm text-slate-600 mb-4">
+      Roz hazaron log yahan groups join karte hain… apna group list karwao aur members instantly pao ⚡
+    </p>
 
-        function showPopup() {
-            const popup = document.getElementById("promo-popup");
-            popup.classList.remove("hidden");
-        }
+    <!-- PRICE -->
+    <div class="text-3xl font-black text-green-600 mb-1">
+      300 PKR
+    </div>
+    <p class="text-xs text-slate-500 mb-4">
+      for 1000+ members reach
+    </p>
 
-        function closePopup() {
-            const popup = document.getElementById("promo-popup");
-            // Add exit animation before hiding
-            popup.firstElementChild.classList.replace('animate__backInUp', 'animate__fadeOutDown');
-            setTimeout(() => {
-                popup.classList.add("hidden");
-            }, 500);
-        }
+    <!-- BUTTON -->
+    <a href="https://wa.me/923359473501" target="_blank"
+       class="block bg-green-500 hover:bg-green-600 text-white font-bold py-3 rounded-2xl shadow-xl transition">
+       Promote Your Group
+    </a>
 
-        // Show after 50% scroll
-        window.addEventListener("scroll", function () {
-            if (popupShown) return;
+    <!-- CLOSE BUTTON -->
+    <button onclick="closePopup()" class="absolute top-2 right-3 text-slate-400 text-xl font-bold">
+      ×
+    </button>
+  </div>
+</div>
 
-            let scrollTop = window.scrollY;
-            let docHeight = document.documentElement.scrollHeight - window.innerHeight;
-            let scrollPercent = (scrollTop / docHeight) * 100;
+<!-- POPUP SCRIPT -->
+<script>
+let popupShown = false;
 
-            if (scrollPercent > 50) {
-                popupShown = true;
-                showPopup();
-            }
-        });
+function showPopup() {
+  document.getElementById("promo-popup").classList.remove("hidden");
+}
 
-        // Close on clicking outside the box
-        document.getElementById("promo-popup").addEventListener("click", function(e) {
-            if (e.target === this) closePopup();
-        });
-    </script>
+function closePopup() {
+  document.getElementById("promo-popup").classList.add("hidden");
+}
+
+// Show after 50% scroll
+window.addEventListener("scroll", function () {
+  if (popupShown) return;
+
+  let scrollTop = window.scrollY;
+  let docHeight = document.body.scrollHeight - window.innerHeight;
+  let scrollPercent = (scrollTop / docHeight) * 100;
+
+  if (scrollPercent > 50) {
+    popupShown = true;
+    showPopup();
+  }
+});
+</script>
 
 
     
