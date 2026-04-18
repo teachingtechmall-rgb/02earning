@@ -673,68 +673,128 @@
         };  
     </script>  
 
-<!-- PREMIUM PROMO POPUP -->
-<div id="promo-popup" class="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 hidden">
 
-  <div class="relative w-[90%] max-w-md rounded-[30px] p-[2px] bg-gradient-to-r from-purple-600 to-indigo-700 shadow-2xl">
 
-    <!-- INNER CARD -->
-    <div class="bg-white rounded-[28px] p-6 text-center relative">
+    <!-- PROMOTION POPUP -->
+    <div id="promo-popup" class="fixed inset-0 bg-slate-950/80 flex items-center justify-center z-[100] hidden opacity-0 transition-opacity duration-500">
+        
+        <div class="neon-border rounded-[2.5rem] w-[90%] max-w-sm p-[2px] animate__animated animate__zoomIn">
+            
+            <div class="pro-glass rounded-[2.4rem] overflow-hidden relative">
+                
+                <!-- TOP HEADER -->
+                <div class="bg-red-600 p-6 pb-8 text-center relative overflow-hidden">
+                    <!-- Abstract Background Pattern -->
+                    <div class="absolute inset-0 opacity-10 pointer-events-none">
+                        <svg width="100%" height="100%"><rect width="100%" height="100%" fill="url(#grid)"/></svg>
+                        <defs><pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M 20 0 L 0 0 0 20" fill="none" stroke="white" stroke-width="1"/></pattern></defs>
+                    </div>
+                    
+                    <div class="inline-flex items-center gap-2 bg-white/20 backdrop-blur-md px-4 py-1.5 rounded-full mb-3">
+                        <span class="relative flex h-2 w-2">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
+                        </span>
+                        <span class="text-white text-[10px] font-extrabold uppercase tracking-[0.2em]">Live Opportunity</span>
+                    </div>
+                    
+                    <h2 class="text-white text-4xl font-[900] italic tracking-tighter leading-none flex items-center justify-center gap-3">
+                        RUKO! <span class="rocket-float block">🚀</span>
+                    </h2>
+                </div>
 
-      <!-- CLOSE -->
-      <button onclick="closePopup()" class="absolute top-3 right-4 text-slate-400 hover:text-slate-700 text-xl font-bold">
-        ×
-      </button>
+                <!-- MAIN CONTENT -->
+                <div class="px-8 pt-10 pb-8 text-center">
+                    <h3 class="text-2xl font-extrabold text-slate-900 leading-tight mb-4">
+                        Apka WhatsApp Group <br/>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-orange-500">Viral Ho Jayega!</span>
+                    </h3>
+                    
+                    <p class="text-slate-500 text-sm leading-relaxed mb-8">
+                        Join karein hamari premium listing aur payein <span class="font-bold text-slate-800">unlimited members</span> for your group.
+                    </p>
 
-      <!-- STOP HEADING (as you said h2) -->
-      <h2 class="text-red-600 font-black text-lg mb-2 tracking-wide">
-        🚫 STOP
-      </h2>
+                    <!-- PRICE TAG (PRO DESIGN) -->
+                    <div class="relative group mb-8">
+                        <div class="absolute inset-0 bg-green-500/20 blur-xl rounded-full scale-75 group-hover:scale-100 transition-transform duration-500"></div>
+                        <div class="relative bg-white border border-slate-100 rounded-3xl p-5 shadow-sm">
+                            <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-slate-900 text-white text-[10px] px-3 py-1 rounded-full font-bold uppercase tracking-wider">Special Offer</span>
+                            <div class="text-5xl font-[900] text-slate-900 tracking-tighter">
+                                300<span class="text-xl text-slate-400 ml-1 font-bold italic underline decoration-green-500">PKR</span>
+                            </div>
+                            <p class="text-green-600 text-[11px] font-extrabold mt-2 uppercase tracking-tighter">
+                                For 1000+ REAL REACH EVERY DAY
+                            </p>
+                        </div>
+                    </div>
 
-      <!-- FOMO TEXT -->
-      <h3 class="text-xl font-extrabold text-slate-800 leading-snug mb-2">
-        Apka WhatsApp Group Viral ho sakta hai 🚀
-      </h3>
+                    <!-- CTA BUTTON -->
+                    <a href="https://wa.me/923359473501" target="_blank"
+                       class="btn-luxury group flex items-center justify-center gap-3 w-full text-white font-bold py-5 rounded-[1.5rem] text-lg">
+                       <span>Promote Group Now</span>
+                       <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M13 7l5 5m0 0l-5 5m5-5H6"></path></svg>
+                    </a>
 
-      <p class="text-sm text-slate-500 mb-4">
-        Roz hazaron log yahan groups join karte hain… agar aaj list nahi kiya to kal late ho jaoge ⚡
-      </p>
+                    <!-- SECONDARY CLOSE -->
+                    <button onclick="closePopup()" class="mt-6 text-slate-400 hover:text-red-500 text-[11px] font-bold uppercase tracking-[0.2em] transition-all">
+                        No, skip this viral hack
+                    </button>
+                </div>
 
-      <!-- PRICE -->
-      <div class="mb-4">
-        <div class="text-4xl font-black bg-gradient-to-r from-green-500 to-emerald-600 bg-clip-text text-transparent">
-          300 PKR
+                <!-- CLOSE ICON -->
+                <button onclick="closePopup()" class="absolute top-4 right-5 text-white/50 hover:text-white transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
         </div>
-        <div class="text-xs text-slate-400 font-semibold">
-          for 1000+ members reach
-        </div>
-      </div>
-
-      <!-- BUTTON -->
-      <a href="https://wa.me/923359473501" target="_blank"
-         class="block w-full bg-gradient-to-r from-green-500 to-emerald-600 text-white font-bold py-3 rounded-2xl shadow-xl hover:scale-105 transition-transform duration-300">
-         🚀 Promote Your Group
-      </a>
-
     </div>
-  </div>
-</div>
 
-<!-- SCRIPT -->
-<script>
-function showPopup() {
-  document.getElementById("promo-popup").classList.remove("hidden");
-}
+    <script>
+        let popupShown = false;
+        const promoPopup = document.getElementById("promo-popup");
 
-function closePopup() {
-  document.getElementById("promo-popup").classList.add("hidden");
-}
+        function showPopup() {
+            if (popupShown) return;
+            popupShown = true;
+            
+            // Show background first
+            promoPopup.classList.remove("hidden");
+            setTimeout(() => {
+                promoPopup.classList.add("opacity-100");
+            }, 10);
+        }
 
-// SHOW AFTER 30 SECONDS
-setTimeout(() => {
-  showPopup();
-}, 30000);
-</script>
+        function closePopup() {
+            promoPopup.classList.replace("opacity-100", "opacity-0");
+            setTimeout(() => {
+                promoPopup.classList.add("hidden");
+            }, 500);
+        }
+
+        // Timer Logic: 8 seconds (Fast for high conversion)
+        setTimeout(showPopup, 8000);
+
+        // Scroll Logic: 40% (Earlier than before to catch attention)
+        window.addEventListener("scroll", function () {
+            if (popupShown) return;
+
+            let scrollTop = window.scrollY;
+            let docHeight = document.body.scrollHeight - window.innerHeight;
+            if (docHeight <= 0) return;
+
+            let scrollPercent = (scrollTop / docHeight) * 100;
+            if (scrollPercent > 40) {
+                showPopup();
+            }
+        });
+
+        // Click outside to close
+        promoPopup.addEventListener('click', (e) => {
+            if(e.target === promoPopup) closePopup();
+        });
+    </script>
+
+
 
     
 </body>  
