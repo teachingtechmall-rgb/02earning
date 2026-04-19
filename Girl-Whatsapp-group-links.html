@@ -1030,37 +1030,23 @@ function closeAdPopup(){
 setTimeout(showAdPopup, 60000);
 </script>
 
-
-    <script>
+<script>
 // ============================
-// MASTER POPUP CONTROLLER 🔥
+// MASTER POPUP CONTROLLER (FIXED)
 // ============================
 
-// CONFIG (yahan sab control hoga)
 const popups = [
-  {
-    id: "private-popup",
-    delay: 20000,     // 20 sec
-    repeat: 120000    // close ke baad 2 min baad phir show
-  },
-  {
-    id: "promo-popup",
-    delay: 40000,     // 40 sec
-    repeat: 180000
-  },
-  {
-    id: "ad-popup",
-    delay: 60000,     // 60 sec
-    repeat: 240000
-  }
+  { id: "private-popup", delay: 20000, repeat: 120000 },
+  { id: "promo-popup", delay: 40000, repeat: 180000 },
+  { id: "ad-popup", delay: 60000, repeat: 240000 }
 ];
 
-// TRACK CURRENT ACTIVE POPUP
 let activePopup = null;
+let popupTimers = {}; // store timers
 
-// SHOW FUNCTION
+// SHOW POPUP
 function showPopup(id) {
-  if (activePopup) return; // ek time pe ek hi popup
+  if (activePopup) return;
 
   const el = document.getElementById(id);
   if (!el) return;
@@ -1069,7 +1055,7 @@ function showPopup(id) {
   activePopup = id;
 }
 
-// CLOSE FUNCTION (GLOBAL)
+// CLOSE POPUP
 function closePopup(id) {
   const el = document.getElementById(id);
   if (!el) return;
@@ -1077,19 +1063,28 @@ function closePopup(id) {
   el.classList.add("hidden");
   activePopup = null;
 
-  // repeat logic
+  // clear old timer (IMPORTANT FIX)
+  if (popupTimers[id]) {
+    clearTimeout(popupTimers[id]);
+  }
+
+  // set new repeat timer
   const popup = popups.find(p => p.id === id);
   if (popup) {
-    setTimeout(() => showPopup(id), popup.repeat);
+    popupTimers[id] = setTimeout(() => {
+      showPopup(id);
+    }, popup.repeat);
   }
 }
 
-// AUTO INIT
+// INITIAL LOAD TIMERS
 popups.forEach(popup => {
-  setTimeout(() => showPopup(popup.id), popup.delay);
+  popupTimers[popup.id] = setTimeout(() => {
+    showPopup(popup.id);
+  }, popup.delay);
 });
 
-// CLICK OUTSIDE CLOSE (ALL POPUPS)
+// CLICK OUTSIDE CLOSE
 document.addEventListener("click", function(e){
   popups.forEach(p => {
     const el = document.getElementById(p.id);
@@ -1099,6 +1094,7 @@ document.addEventListener("click", function(e){
   });
 });
 </script>
+    
     
 </body>  
 </html>
