@@ -1006,7 +1006,7 @@ document.getElementById("promo-popup").addEventListener("click", function(e){
 
       <!-- SKIP -->
       <button onclick="closeAdPopup()" class="mt-4 text-xs text-slate-400 font-bold uppercase">
-        Maybe Later
+
       </button>
 
     </div>
@@ -1030,60 +1030,6 @@ function closeAdPopup(){
 setTimeout(showAdPopup, 60000);
 </script>
 
-<script>
-// ============================
-// MASTER POPUP CONTROLLER (NO DUPLICATE)
-// ============================
-
-const popups = [
-  { id: "private-popup", start: 20000, repeat: 90000 }, // 1.5 min
-  { id: "promo-popup", start: 40000, repeat: 120000 },
-  { id: "ad-popup", start: 60000, repeat: 150000 }
-];
-
-let activePopup = null;
-
-// SHOW POPUP
-function showPopup(id) {
-  if (activePopup) return;
-
-  const el = document.getElementById(id);
-  if (!el) return;
-
-  el.classList.remove("hidden");
-  activePopup = id;
-}
-
-// CLOSE POPUP
-function closePopup(id) {
-  const el = document.getElementById(id);
-  if (!el) return;
-
-  el.classList.add("hidden");
-  activePopup = null;
-
-  // repeat after close (ONLY LOGIC NOW)
-  const popup = popups.find(p => p.id === id);
-  if (popup) {
-    setTimeout(() => showPopup(id), popup.repeat);
-  }
-}
-
-// INITIAL TRIGGER (ONLY ONCE)
-popups.forEach(popup => {
-  setTimeout(() => showPopup(popup.id), popup.start);
-});
-
-// CLICK OUTSIDE CLOSE
-document.addEventListener("click", function(e){
-  popups.forEach(p => {
-    const el = document.getElementById(p.id);
-    if (el && e.target === el) {
-      closePopup(p.id);
-    }
-  });
-});
-</script>
     
     
 </body>  
