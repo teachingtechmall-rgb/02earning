@@ -1032,17 +1032,16 @@ setTimeout(showAdPopup, 60000);
 
 <script>
 // ============================
-// MASTER POPUP CONTROLLER (FIXED)
+// MASTER POPUP CONTROLLER (NO DUPLICATE)
 // ============================
 
 const popups = [
-  { id: "private-popup", delay: 20000, repeat: 120000 },
-  { id: "promo-popup", delay: 40000, repeat: 180000 },
-  { id: "ad-popup", delay: 60000, repeat: 240000 }
+  { id: "private-popup", start: 20000, repeat: 90000 }, // 1.5 min
+  { id: "promo-popup", start: 40000, repeat: 120000 },
+  { id: "ad-popup", start: 60000, repeat: 150000 }
 ];
 
 let activePopup = null;
-let popupTimers = {}; // store timers
 
 // SHOW POPUP
 function showPopup(id) {
@@ -1063,25 +1062,16 @@ function closePopup(id) {
   el.classList.add("hidden");
   activePopup = null;
 
-  // clear old timer (IMPORTANT FIX)
-  if (popupTimers[id]) {
-    clearTimeout(popupTimers[id]);
-  }
-
-  // set new repeat timer
+  // repeat after close (ONLY LOGIC NOW)
   const popup = popups.find(p => p.id === id);
   if (popup) {
-    popupTimers[id] = setTimeout(() => {
-      showPopup(id);
-    }, popup.repeat);
+    setTimeout(() => showPopup(id), popup.repeat);
   }
 }
 
-// INITIAL LOAD TIMERS
+// INITIAL TRIGGER (ONLY ONCE)
 popups.forEach(popup => {
-  popupTimers[popup.id] = setTimeout(() => {
-    showPopup(popup.id);
-  }, popup.delay);
+  setTimeout(() => showPopup(popup.id), popup.start);
 });
 
 // CLICK OUTSIDE CLOSE
