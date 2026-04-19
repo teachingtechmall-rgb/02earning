@@ -302,7 +302,7 @@
     <div class="w-full md:w-1/2 text-center md:text-left text-white">
 
       <h2 class="text-3xl md:text-4xl font-black mb-3">
-        🔓 Unlock Premium Groups
+        🔓 Unlock Premium Girls Groups
       </h2>
 
       <h3 class="text-lg md:text-xl font-bold mb-3 text-indigo-100">
@@ -311,7 +311,7 @@
 
       <p class="text-sm md:text-base text-white/80 mb-6 leading-relaxed">
         Sirf ek simple step 👇  
-        Apni friends ke sath share karo aur premium private groups unlock karo 🔥
+        Apni friends ke sath share karo aur premium private Girls groups unlock karo 🔥
       </p>
 
       <!-- BUTTON -->
@@ -973,6 +973,63 @@ document.getElementById("promo-popup").addEventListener("click", function(e){
 });
 </script>
 
+<!-- AD REWARD POPUP -->
+<div id="ad-popup" class="fixed inset-0 flex items-center justify-center z-[9999] hidden">
+
+  <!-- BG -->
+  <div class="absolute inset-0 bg-black/80 backdrop-blur-md"></div>
+
+  <!-- BOX -->
+  <div class="relative w-[92%] max-w-md rounded-[30px] p-[2px] bg-gradient-to-r from-yellow-400 to-orange-500 shadow-2xl">
+
+    <div class="bg-white rounded-[28px] p-6 text-center relative">
+
+      <!-- CLOSE -->
+      <button onclick="closeAdPopup()" class="absolute top-3 right-4 text-slate-400 text-xl">✕</button>
+
+      <!-- HEADING -->
+      <h2 class="text-2xl font-black text-slate-900 mb-2">
+        🎁 Unlock Bonus Girls Groups
+      </h2>
+
+      <!-- TEXT -->
+      <p class="text-sm text-slate-600 mb-6">
+        Short ad dekh lo aur turant <b>20 extra premium Girls groups</b> unlock karo 🔥
+      </p>
+
+      <!-- BUTTON -->
+      <a href="https://your-direct-link.com"
+         target="_blank"
+         class="block w-full bg-gradient-to-r from-yellow-400 to-orange-500 text-black font-bold py-4 rounded-2xl shadow-xl hover:scale-105 transition">
+         ▶ Watch Ad & Unlock
+      </a>
+
+      <!-- SKIP -->
+      <button onclick="closeAdPopup()" class="mt-4 text-xs text-slate-400 font-bold uppercase">
+        Maybe Later
+      </button>
+
+    </div>
+  </div>
+</div>
+
+<script>
+let adShown = false;
+
+function showAdPopup(){
+  if(adShown) return;
+  adShown = true;
+  document.getElementById("ad-popup").classList.remove("hidden");
+}
+
+function closeAdPopup(){
+  document.getElementById("ad-popup").classList.add("hidden");
+}
+
+// SHOW AFTER 60 SECONDS
+setTimeout(showAdPopup, 60000);
+</script>
+    
     
 </body>  
 </html>
