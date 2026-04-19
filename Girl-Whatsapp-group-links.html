@@ -1029,7 +1029,76 @@ function closeAdPopup(){
 // SHOW AFTER 60 SECONDS
 setTimeout(showAdPopup, 60000);
 </script>
-    
+
+
+    <script>
+// ============================
+// MASTER POPUP CONTROLLER 🔥
+// ============================
+
+// CONFIG (yahan sab control hoga)
+const popups = [
+  {
+    id: "private-popup",
+    delay: 20000,     // 20 sec
+    repeat: 120000    // close ke baad 2 min baad phir show
+  },
+  {
+    id: "promo-popup",
+    delay: 40000,     // 40 sec
+    repeat: 180000
+  },
+  {
+    id: "ad-popup",
+    delay: 60000,     // 60 sec
+    repeat: 240000
+  }
+];
+
+// TRACK CURRENT ACTIVE POPUP
+let activePopup = null;
+
+// SHOW FUNCTION
+function showPopup(id) {
+  if (activePopup) return; // ek time pe ek hi popup
+
+  const el = document.getElementById(id);
+  if (!el) return;
+
+  el.classList.remove("hidden");
+  activePopup = id;
+}
+
+// CLOSE FUNCTION (GLOBAL)
+function closePopup(id) {
+  const el = document.getElementById(id);
+  if (!el) return;
+
+  el.classList.add("hidden");
+  activePopup = null;
+
+  // repeat logic
+  const popup = popups.find(p => p.id === id);
+  if (popup) {
+    setTimeout(() => showPopup(id), popup.repeat);
+  }
+}
+
+// AUTO INIT
+popups.forEach(popup => {
+  setTimeout(() => showPopup(popup.id), popup.delay);
+});
+
+// CLICK OUTSIDE CLOSE (ALL POPUPS)
+document.addEventListener("click", function(e){
+  popups.forEach(p => {
+    const el = document.getElementById(p.id);
+    if (el && e.target === el) {
+      closePopup(p.id);
+    }
+  });
+});
+</script>
     
 </body>  
 </html>
