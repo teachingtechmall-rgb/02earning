@@ -1013,24 +1013,34 @@ document.getElementById("promo-popup").addEventListener("click", function(e){
   </div>
 </div>
 
-<script>
-let adShown = false;
+    <script>
+let popup = document.getElementById("ad-popup");
 
+// SHOW POPUP
 function showAdPopup(){
-  if(adShown) return;
-  adShown = true;
-  document.getElementById("ad-popup").classList.remove("hidden");
+  popup.classList.remove("hidden");
 }
 
+// CLOSE POPUP
 function closeAdPopup(){
-  document.getElementById("ad-popup").classList.add("hidden");
+  popup.classList.add("hidden");
+  scheduleNextPopup(); // close ke baad next schedule hoga
 }
 
-// SHOW AFTER 60 SECONDS
-setTimeout(showAdPopup, 60000);
-</script>
+// RANDOM TIME GENERATOR (60s - 120s)
+function getRandomTime(){
+  return Math.floor(Math.random() * (120000 - 60000 + 1)) + 60000;
+}
 
-    
+// NEXT POPUP SCHEDULE
+function scheduleNextPopup(){
+  let nextTime = getRandomTime();
+  setTimeout(showAdPopup, nextTime);
+}
+
+// FIRST SHOW (35 sec)
+setTimeout(showAdPopup, 35000);
+    </script>
     
 </body>  
 </html>
