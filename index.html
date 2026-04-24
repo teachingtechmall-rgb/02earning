@@ -143,8 +143,8 @@
         </video>
 
         <!-- FLOAT PLAY BUTTON -->
-        <button onclick="playWithSound()" 
-                class="absolute inset-0 flex items-center justify-center">
+        <button id="playBtn" onclick="playWithSound()" 
+                class="absolute inset-0 flex items-center justify-center transition-opacity duration-300">
             <div class="w-16 h-16 bg-[#39FF14] text-black rounded-full flex items-center justify-center shadow-xl hover:scale-110 transition">
                 ▶
             </div>
@@ -174,12 +174,28 @@
 <script>
 function playWithSound() {
   const video = document.getElementById("earningVideo");
+  const btn = document.getElementById("playBtn");
+
   video.muted = false;
   video.currentTime = 0;
   video.play();
-}
-</script>
 
+  // HIDE BUTTON SMOOTHLY
+  btn.style.opacity = "0";
+  setTimeout(() => {
+    btn.style.display = "none";
+  }, 300);
+}
+
+// OPTIONAL: AGAR VIDEO PAUSE HO TO BUTTON WAPAS AAYE
+document.getElementById("earningVideo").addEventListener("pause", function() {
+  const btn = document.getElementById("playBtn");
+  btn.style.display = "flex";
+  setTimeout(() => {
+    btn.style.opacity = "1";
+  }, 10);
+});
+</script>
 
     <!-- SHARE & UNLOCK (NEON DARK VERSION) -->
 <section class="mb-16 relative overflow-hidden border border-[#39FF14]/30 rounded-3xl">
