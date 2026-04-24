@@ -124,32 +124,96 @@
                 </button>
                 <p class="text-sm text-gray-500 italic mt-2">✨ Limited Slots Available for this Price!</p>
             </div>
-        </div>
-    </section>
-    <!-- TRUST RATING BAR -->
-<div class="w-full flex justify-center mt-6 px-4">
 
-  <div class="flex items-center gap-4 bg-black border border-[#39FF14]/30 rounded-xl px-6 py-3 shadow-[0_0_20px_rgba(57,255,20,0.2)]">
+<!-- ADVANCED TRUST BLOCK -->
+<div class="w-full flex flex-col items-center mt-8 px-4">
 
-    <!-- LOGO TEXT -->
-    <div class="text-sm font-bold text-white flex items-center gap-2">
-      ⭐ <span class="text-[#39FF14]">TrustScore</span>
+  <div class="bg-black/80 backdrop-blur-md border border-[#39FF14]/30 rounded-2xl px-6 py-4 shadow-[0_0_30px_rgba(57,255,20,0.2)] w-full max-w-xl text-center">
+
+    <!-- TRUSTPILOT -->
+    <div class="text-sm text-white font-bold mb-2">
+      ★ <span class="text-[#39FF14]">Trustpilot Verified</span>
     </div>
 
     <!-- STARS -->
-    <div class="flex items-center gap-1 text-[#39FF14] text-lg">
-      ★ ★ ★ ★ ★
+    <div id="stars" class="flex justify-center text-2xl text-gray-600 mb-2">
+      ★★★★★
     </div>
 
-    <!-- RATING TEXT -->
-    <div class="text-sm text-gray-300">
-      <span class="font-bold text-white">4.9/5</span> based on 1,200+ reviews
+    <!-- RATING -->
+    <div class="text-lg text-white mb-1">
+      <span id="ratingNumber" class="font-extrabold text-[#39FF14]">0.0</span>/5 Rating
+    </div>
+
+    <!-- REVIEWS -->
+    <div class="text-xs text-gray-400 mb-3">
+      Based on 1,200+ verified users
+    </div>
+
+    <!-- LIVE VIEWERS -->
+    <div class="text-xs text-[#39FF14] mb-2">
+      👀 <span id="viewers">23</span> people are viewing this right now
+    </div>
+
+    <!-- LIVE REVIEW TEXT -->
+    <div id="liveReview" class="text-xs text-gray-300 italic transition-all duration-500">
+      “Bohat zabardast course hai 🔥”
     </div>
 
   </div>
-
 </div>
 
+<script>
+// ⭐ STAR ANIMATION
+setTimeout(() => {
+  const stars = document.getElementById("stars");
+  stars.innerHTML = "★★★★★";
+  stars.classList.remove("text-gray-600");
+  stars.classList.add("text-[#39FF14]");
+}, 500);
+
+// 🔢 RATING COUNTER (0 → 4.9)
+let rating = 0.0;
+const target = 4.9;
+const interval = setInterval(() => {
+  rating += 0.1;
+  document.getElementById("ratingNumber").innerText = rating.toFixed(1);
+  if (rating >= target) clearInterval(interval);
+}, 50);
+
+// 👀 VIEWERS RANDOM CHANGE
+setInterval(() => {
+  const random = Math.floor(Math.random() * 20) + 20; // 20–40
+  document.getElementById("viewers").innerText = random;
+}, 3000);
+
+// 💬 LIVE REVIEWS ROTATION
+const reviews = [
+  "“Bohat zabardast course hai 🔥”",
+  "“Maine 3 din me earning start ki 💰”",
+  "“Simple aur easy samajh aata hai 👍”",
+  "“Best investment honestly 😍”",
+  "“Worth it hai 100% 💯”"
+];
+
+let i = 0;
+setInterval(() => {
+  i = (i + 1) % reviews.length;
+  document.getElementById("liveReview").innerText = reviews[i];
+}, 4000);
+</script>
+            <p class="text-center text-xs text-gray-500 mt-2">
+  🔥 1,000+ log already earning start kar chuke hain
+            </p>
+            <p class="text-center text-xs text-gray-500 mt-2">
+  ⚠️ High demand ki wajah se access kabhi bhi band ho sakta hai
+            </p>
+            
+        </div>
+
+        
+    </section>
+    
 <!-- MONEY CTA BLOCK (NEON VERSION) -->
 <section class="mb-12 bg-black border border-[#39FF14]/30 rounded-3xl p-8 text-white text-center shadow-[0_0_40px_rgba(57,255,20,0.2)] relative overflow-hidden">
 
