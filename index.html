@@ -469,7 +469,6 @@
     <!-- CONTENT -->
     <div class="px-7 py-8 text-center">
 
-      <!-- MAIN TEXT -->
       <h3 class="text-2xl font-extrabold text-white leading-tight mb-3">
         Sirf 5 Minute Ka Secret Offer 🔥
         <span class="block text-[#39FF14]">
@@ -479,11 +478,10 @@
 
       <p class="text-sm text-gray-400 mb-6 leading-relaxed">
         Aksar log wait karte rehte hain… aur phir regret karte hain 😤  
-        Lekin jo smart hote hain wo <b class="text-white">immediately decision lete hain</b>  
-        isi liye wo earning start kar dete hain 💰
+        Lekin jo smart log hote hain wo <b class="text-white">turant decision lete hain</b> 💰
       </p>
 
-      <!-- PRICE BOX -->
+      <!-- PRICE -->
       <div class="bg-white/5 border border-white/10 rounded-2xl p-5 mb-6">
         <p class="text-xs text-gray-400 mb-2 uppercase">Special Limited Offer</p>
         
@@ -498,19 +496,19 @@
       </div>
 
       <!-- BUTTON -->
-      <button onclick="scrollToPayment(); closePrivatePopup();" 
-        class="block w-full bg-[#39FF14] text-black font-extrabold py-4 rounded-xl text-lg pulse-animation">
-        🔥 YES! MUJHE DISCOUNT CHAHIYE
-      </button>
+      <a href="https://api.whatsapp.com/send/?phone=923359473501&text=Hello%21+I+want+to+join+the+18-in-1+Marketing+Bundle+for+Rs.+859+limited+offer.+Please+send+me+payment+details.&type=phone_number&app_absent=0"
+         target="_blank"
+         onclick="closePrivatePopup()"
+         class="block w-full bg-[#39FF14] text-black font-extrabold py-4 rounded-xl text-lg pulse-animation text-center">
+        🔥 YES! MUJHE 859 WALI OFFER CHAHIYE
+      </a>
 
-      <!-- CLOSE -->
       <button onclick="closePrivatePopup()" class="mt-5 text-xs text-gray-500 hover:text-red-500 font-bold uppercase tracking-widest">
         Maybe later
       </button>
 
     </div>
 
-    <!-- CLOSE ICON -->
     <button onclick="closePrivatePopup()" class="absolute top-4 right-4 text-gray-400 hover:text-red-500 text-xl">
       ✕
     </button>
@@ -522,23 +520,54 @@
 <script>
 let privateShown = false;
 
+// SMART SHOW FUNCTION
 function showPrivatePopup() {
   if (privateShown) return;
+
   privateShown = true;
   document.getElementById("private-popup").classList.remove("hidden");
 
-  // 5 MIN TIMER AUTO CLOSE (OPTIONAL)
+  // SAVE STATE (avoid spam)
+  localStorage.setItem("popupShownTime", Date.now());
+
+  // AUTO CLOSE AFTER 5 MIN
   setTimeout(() => {
     closePrivatePopup();
-  }, 300000); // 5 min
+  }, 300000);
 }
 
 function closePrivatePopup() {
   document.getElementById("private-popup").classList.add("hidden");
 }
 
-// SHOW AFTER 30 SECONDS
-setTimeout(showPrivatePopup, 30000);
+// ⏱️ DELAY TRIGGER (30s)
+setTimeout(() => {
+  const lastShown = localStorage.getItem("popupShownTime");
+  if (!lastShown || (Date.now() - lastShown > 600000)) { // 10 min cooldown
+    showPrivatePopup();
+  }
+}, 30000);
+
+// 📜 SCROLL TRIGGER (50%)
+window.addEventListener("scroll", () => {
+  const scrollPercent = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+
+  if (scrollPercent > 50) {
+    showPrivatePopup();
+  }
+});
+
+// 🚪 EXIT INTENT (desktop)
+document.addEventListener("mouseleave", (e) => {
+  if (e.clientY < 0) {
+    showPrivatePopup();
+  }
+});
+
+// 📱 MOBILE EXIT INTENT (back button feel)
+window.addEventListener("popstate", function () {
+  showPrivatePopup();
+});
 
 // CLICK OUTSIDE CLOSE
 document.getElementById("private-popup").addEventListener("click", function(e){
