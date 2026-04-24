@@ -298,38 +298,75 @@
       
 
 
-      <!-- Money Block CTA -->
-<section class="mb-12 bg-indigo-900 rounded-3xl p-8 text-white text-center shadow-2xl relative overflow-hidden">
+      <!-- MONEY CTA BLOCK (NEON VERSION) -->
+<section class="mb-12 bg-black border border-[#39FF14]/30 rounded-3xl p-8 text-white text-center shadow-[0_0_40px_rgba(57,255,20,0.2)] relative overflow-hidden">
 
-    <!-- ICON BG -->
-    <div class="absolute top-0 right-0 p-4 opacity-10">
-        <i class="fa fa-dollar-sign text-8xl"></i>
-    </div>
+    <!-- GLOW BG -->
+    <div class="absolute inset-0 bg-gradient-to-br from-[#39FF14]/5 to-transparent"></div>
 
-    <!-- VIDEO (AUTO PLAY) -->
-    <div class="mb-6 flex justify-center">
-        <video autoplay muted loop playsinline 
+    <!-- VIDEO WRAPPER -->
+    <div class="mb-6 flex justify-center relative">
+
+        <!-- VIDEO -->
+        <video id="earningVideo" autoplay muted loop playsinline 
                class="w-full max-w-md rounded-2xl shadow-xl border border-white/10">
             <source src="ssstik.io_1776726261700.mp4" type="video/mp4">
         </video>
+
+        <!-- FLOAT PLAY BUTTON -->
+        <button id="playBtn" onclick="playWithSound()" 
+                class="absolute inset-0 flex items-center justify-center transition-opacity duration-300">
+            <div class="w-16 h-16 bg-[#39FF14] text-black rounded-full flex items-center justify-center shadow-xl hover:scale-110 transition">
+                ▶
+            </div>
+        </button>
+
     </div>
 
     <!-- TEXT -->
-    <h2 class="text-2xl font-bold mb-4">
-        Sirf groups join karna band karo… earning start karo! 💰
+    <h2 class="text-2xl font-extrabold mb-4">
+        Sirf Groups Join Karna Band Karo…  
+        <span class="text-[#39FF14]">Ab Earning Start Karo 💰</span>
     </h2>
 
-    <p class="mb-6 opacity-80 text-sm">
-        Real earning proof 👇 ab aapki baari hai 🚀
+    <p class="mb-6 text-gray-400 text-sm">
+        Ye sirf video nahi hai…  
+        ye woh proof hai jahan se log daily earning kar rahe hain 🚀
     </p>
 
     <!-- BUTTON -->
     <a href="https://02earning.vercel.app/index.html"
-       class="inline-block bg-yellow-400 text-indigo-900 font-extrabold px-10 py-4 rounded-2xl hover:bg-yellow-300 transition-all transform hover:scale-105 shadow-xl">
-        Start Earning Now <i class="fa fa-arrow-right ml-2"></i>
+       class="inline-block bg-[#39FF14] text-black font-extrabold px-10 py-4 rounded-xl hover:bg-[#32e012] transition-all transform hover:scale-105 shadow-[0_0_20px_rgba(57,255,20,0.4)]">
+        🔥 Start Earning Now
     </a>
 
 </section>
+
+<script>
+function playWithSound() {
+  const video = document.getElementById("earningVideo");
+  const btn = document.getElementById("playBtn");
+
+  video.muted = false;
+  video.currentTime = 0;
+  video.play();
+
+  // HIDE BUTTON SMOOTHLY
+  btn.style.opacity = "0";
+  setTimeout(() => {
+    btn.style.display = "none";
+  }, 300);
+}
+
+// OPTIONAL: AGAR VIDEO PAUSE HO TO BUTTON WAPAS AAYE
+document.getElementById("earningVideo").addEventListener("pause", function() {
+  const btn = document.getElementById("playBtn");
+  btn.style.display = "flex";
+  setTimeout(() => {
+    btn.style.opacity = "1";
+  }, 10);
+});
+</script>
 
       
 <!-- SHARE & UNLOCK BANNER -->
