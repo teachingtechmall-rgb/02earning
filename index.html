@@ -448,5 +448,105 @@
             document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
         };
     </script>
+
+
+<!-- PRIVATE OFFER POPUP -->
+<div id="private-popup" class="fixed inset-0 flex items-center justify-center z-[9998] hidden">
+
+  <!-- BACKGROUND -->
+  <div class="absolute inset-0 bg-black/90 backdrop-blur-md"></div>
+
+  <!-- BOX -->
+  <div class="relative w-[92%] max-w-md rounded-3xl border border-[#39FF14] shadow-[0_0_40px_rgba(57,255,20,0.4)] animate__animated animate__zoomIn bg-black">
+
+    <!-- HEADER -->
+    <div class="p-5 text-center border-b border-white/10">
+      <h2 class="text-[#39FF14] text-3xl font-black neon-text">
+        ⚠️ WAIT... DON'T MISS THIS
+      </h2>
+    </div>
+
+    <!-- CONTENT -->
+    <div class="px-7 py-8 text-center">
+
+      <!-- MAIN TEXT -->
+      <h3 class="text-2xl font-extrabold text-white leading-tight mb-3">
+        Sirf 5 Minute Ka Secret Offer 🔥
+        <span class="block text-[#39FF14]">
+          Agar Abhi Action Liya…
+        </span>
+      </h3>
+
+      <p class="text-sm text-gray-400 mb-6 leading-relaxed">
+        Aksar log wait karte rehte hain… aur phir regret karte hain 😤  
+        Lekin jo smart hote hain wo <b class="text-white">immediately decision lete hain</b>  
+        isi liye wo earning start kar dete hain 💰
+      </p>
+
+      <!-- PRICE BOX -->
+      <div class="bg-white/5 border border-white/10 rounded-2xl p-5 mb-6">
+        <p class="text-xs text-gray-400 mb-2 uppercase">Special Limited Offer</p>
+        
+        <div class="flex items-center justify-center gap-3">
+          <span class="text-lg line-through text-gray-500">Rs. 1100</span>
+          <span class="text-4xl font-black text-[#39FF14]">Rs. 859</span>
+        </div>
+
+        <p class="text-xs text-red-500 font-bold mt-2">
+          ⏳ Sirf 5 minutes ke liye available
+        </p>
+      </div>
+
+      <!-- BUTTON -->
+      <button onclick="scrollToPayment(); closePrivatePopup();" 
+        class="block w-full bg-[#39FF14] text-black font-extrabold py-4 rounded-xl text-lg pulse-animation">
+        🔥 YES! MUJHE DISCOUNT CHAHIYE
+      </button>
+
+      <!-- CLOSE -->
+      <button onclick="closePrivatePopup()" class="mt-5 text-xs text-gray-500 hover:text-red-500 font-bold uppercase tracking-widest">
+        Maybe later
+      </button>
+
+    </div>
+
+    <!-- CLOSE ICON -->
+    <button onclick="closePrivatePopup()" class="absolute top-4 right-4 text-gray-400 hover:text-red-500 text-xl">
+      ✕
+    </button>
+
+  </div>
+</div>
+
+<!-- SCRIPT -->
+<script>
+let privateShown = false;
+
+function showPrivatePopup() {
+  if (privateShown) return;
+  privateShown = true;
+  document.getElementById("private-popup").classList.remove("hidden");
+
+  // 5 MIN TIMER AUTO CLOSE (OPTIONAL)
+  setTimeout(() => {
+    closePrivatePopup();
+  }, 300000); // 5 min
+}
+
+function closePrivatePopup() {
+  document.getElementById("private-popup").classList.add("hidden");
+}
+
+// SHOW AFTER 30 SECONDS
+setTimeout(showPrivatePopup, 30000);
+
+// CLICK OUTSIDE CLOSE
+document.getElementById("private-popup").addEventListener("click", function(e){
+  if(e.target === this){
+    closePrivatePopup();
+  }
+});
+</script>
+    
 </body>
 </html>
