@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sana | Official Profile</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- OneSignal Placeholder -->
+    <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+    <script>
+        window.OneSignal = window.OneSignal || [];
+        OneSignal.push(function() {
+            OneSignal.init({
+                appId: "YOUR_ONESIGNAL_APP_ID_HERE",
+            });
+        });
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #fce7f3 0%, #f3e8ff 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 24px;
+        }
+
+        .profile-border {
+            padding: 4px;
+            background: linear-gradient(45deg, #d946ef, #8b5cf6);
+            border-radius: 50%;
+            animation: border-glow 2s infinite alternate;
+        }
+
+        @keyframes border-glow {
+            from { box-shadow: 0 0 5px #d946ef; }
+            to { box-shadow: 0 0 20px #8b5cf6; }
+        }
+
+        .pulse-animation {
+            animation: pulse-red 2s infinite;
+        }
+
+        @keyframes pulse-red {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(236, 72, 153, 0.7); }
+            70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(236, 72, 153, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(236, 72, 153, 0); }
+        }
+
+        .floating-notif {
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.5s ease-in-out;
+        }
+
+        .floating-notif.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .comment-scroll {
+            max-height: 200px;
+            overflow-y: auto;
+            scrollbar-width: none;
+        }
+        .comment-scroll::-webkit-scrollbar { display: none; }
+
+        .typing-dot {
+            width: 4px;
+            height: 4px;
+            background: #94a3b8;
+            border-radius: 50%;
+            display: inline-block;
+            animation: blink 1.4s infinite both;
+        }
+        .typing-dot:nth-child(2) { animation-delay: 0.2s; }
+        .typing-dot:nth-child(3) { animation-delay: 0.4s; }
+
+        @keyframes blink {
+            0%, 80%, 100% { opacity: 0; }
+            40% { opacity: 1; }
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8 flex flex-col items-center">
+
+    <!-- Background Decoration -->
+    <div class="fixed top-0 left-0 w-full h-full -z-10 opacity-30">
+        <div class="absolute top-10 left-10 w-32 h-32 bg-pink-300 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-20 right-10 w-48 h-48 bg-purple-300 rounded-full blur-3xl"></div>
+    </div>
+
+    <!-- Profile Container -->
+    <div class="w-full max-w-md glass-card p-6 text-center shadow-2xl relative">
+        
+        <!-- Hero Section -->
+        <div class="flex justify-center mb-4">
+            <div class="profile-border">
+                <div class="w-32 h-32 rounded-full overflow-hidden border-4 border-white bg-gray-200">
+                    <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&q=80&w=500" 
+                         alt="Sana" 
+                         class="w-full h-full object-cover">
+                </div>
+            </div>
+        </div>
+
+        <h1 class="text-2xl font-bold text-gray-800 flex items-center justify-center gap-2">
+            Olivia Official 
+            <svg class="w-6 h-6 text-blue-500 fill-current" viewBox="0 0 24 24">
+                <path d="M23,12L20.56,9.22L20.9,5.54L17.29,4.72L15.4,1.54L12,3L8.6,1.54L6.71,4.72L3.1,5.53L3.44,9.21L1,12L3.44,14.78L3.1,18.47L6.71,19.29L8.6,22.47L12,21L15.4,22.46L17.29,19.28L20.9,18.46L20.56,14.78L23,12M10,17L6,13L7.41,11.59L10,14.17L16.59,7.58L18,9L10,17Z"></path>
+            </svg>
+        </h1>
+
+        <div class="text-sm font-semibold text-purple-600 mt-1">
+            <span id="followerCount">48,512</span> Followers
+        </div>
+
+        <p class="mt-4 text-gray-600 text-sm leading-relaxed px-4">
+            "I'm waiting for someone special... Is it you? 🌸 <br>
+            Single & ready to mingle. Let's talk? ✨"
+        </p>
+
+        <!-- OneSignal Follow Button -->
+        <div class="mt-6 flex flex-col items-center">
+            <button onclick="handleFollow()" class="w-full py-4 px-6 bg-gradient-to-r from-pink-500 to-purple-600 text-white font-bold rounded-2xl shadow-lg hover:opacity-90 transition-all transform active:scale-95 text-lg">
+                <i class="fas fa-plus-circle mr-2"></i> Follow Me Now
+            </button>
+            <div class="mt-2 flex items-center gap-2 text-xs font-bold text-green-600 uppercase tracking-widest">
+                <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+                Online Now
+            </div>
+        </div>
+
+        <!-- Action Links -->
+        <div class="mt-8 space-y-3">
+            <a href="#" class="flex items-center justify-between p-4 bg-white/50 hover:bg-white/80 rounded-xl border border-white transition-all pulse-animation">
+                <div class="flex items-center gap-3">
+                    <div class="bg-green-100 p-2 rounded-lg"><i class="fab fa-whatsapp text-green-600 text-xl"></i></div>
+                    <span class="font-semibold text-gray-700">Chat on WhatsApp</span>
+                </div>
+                <i class="fas fa-chevron-right text-gray-400"></i>
+            </a>
+
+            <a href="#" class="flex items-center justify-between p-4 bg-white/50 hover:bg-white/80 rounded-xl border border-white transition-all">
+                <div class="flex items-center gap-3">
+                    <div class="bg-pink-100 p-2 rounded-lg"><i class="fas fa-camera text-pink-600 text-xl"></i></div>
+                    <span class="font-semibold text-gray-700">See Private Photos</span>
+                </div>
+                <i class="fas fa-chevron-right text-gray-400"></i>
+            </a>
+
+            <a href="#" class="flex items-center justify-between p-4 bg-white/50 hover:bg-white/80 rounded-xl border border-white transition-all">
+                <div class="flex items-center gap-3">
+                    <div class="bg-red-100 p-2 rounded-lg"><i class="fas fa-video text-red-600 text-xl"></i></div>
+                    <span class="font-semibold text-gray-700">Join My Live Stream</span>
+                </div>
+                <i class="fas fa-chevron-right text-gray-400"></i>
+            </a>
+        </div>
+
+        <!-- Live Comment Trap -->
+        <div class="mt-10 pt-6 border-t border-gray-100 text-left">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="font-bold text-gray-800">Live Comments</h3>
+                <div class="text-[10px] text-gray-400 italic" id="typingIndicator">
+                    Sana is typing<span class="typing-dot"></span><span class="typing-dot"></span><span class="typing-dot"></span>
+                </div>
+            </div>
+
+            <div id="commentContainer" class="comment-scroll space-y-3 mb-4 pr-2">
+                <!-- Initial Comments -->
+                <div class="text-sm bg-white/40 p-3 rounded-lg">
+                    <span class="font-bold text-purple-600">Arjun:</span> Wow, you are so beautiful! 😍
+                </div>
+                <div class="text-sm bg-white/40 p-3 rounded-lg">
+                    <span class="font-bold text-purple-600">Ravi_99:</span> I just messaged you, please reply.
+                </div>
+                <div class="text-sm bg-white/40 p-3 rounded-lg">
+                    <span class="font-bold text-purple-600">Vikash:</span> Best profile I've seen today. ❤️
+                </div>
+            </div>
+
+            <!-- Comment Input -->
+            <div class="relative">
+                <input type="text" id="userInput" placeholder="Say something..." class="w-full p-3 pr-12 rounded-xl bg-white border-none focus:ring-2 focus:ring-pink-300 text-sm shadow-inner">
+                <button onclick="postComment()" class="absolute right-2 top-1/2 -translate-y-1/2 text-pink-500 hover:text-pink-600 px-2">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+            <div id="statusMsg" class="hidden text-[10px] text-center mt-2 text-pink-600 font-bold uppercase tracking-wider">
+                Waiting for approval...
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Popups -->
+    <div id="popupContainer" class="fixed bottom-6 right-6 z-50 pointer-events-none"></div>
+
+    <script>
+        // 1. Follower Counter Logic
+        let count = 48512;
+        const countEl = document.getElementById('followerCount');
+        
+        setInterval(() => {
+            if (Math.random() > 0.3) {
+                count += Math.floor(Math.random() * 3) + 1;
+                countEl.innerText = count.toLocaleString();
+            }
+        }, 3000);
+
+        // 2. Dynamic Notification Popups
+        const names = ['Aamir', 'Rahul', 'Zeeshan', 'Abhi', 'Sameer', 'Priya', 'Sunny', 'Rohan', 'Kabir'];
+        const actions = ['just followed her!', 'is now chatting...', 'liked a photo!', 'sent a message!'];
+
+        function showNotification() {
+            const container = document.getElementById('popupContainer');
+            const name = names[Math.floor(Math.random() * names.length)];
+            const action = actions[Math.floor(Math.random() * actions.length)];
+
+            const div = document.createElement('div');
+            div.className = 'floating-notif bg-white shadow-xl p-4 rounded-2xl mb-3 flex items-center gap-3 border border-pink-100 max-w-xs';
+            div.innerHTML = `
+                <div class="w-8 h-8 bg-gradient-to-br from-pink-400 to-purple-500 rounded-full flex items-center justify-center text-white text-xs">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="text-xs">
+                    <span class="font-bold text-gray-800">${name}</span> 
+                    <span class="text-gray-500">${action}</span>
+                </div>
+            `;
+            
+            container.appendChild(div);
+            setTimeout(() => div.classList.add('show'), 100);
+
+            setTimeout(() => {
+                div.classList.remove('show');
+                setTimeout(() => div.remove(), 500);
+            }, 4000);
+        }
+
+        setInterval(showNotification, 5000);
+
+        // 3. Typing Indicator Fake Toggle
+        const typingEl = document.getElementById('typingIndicator');
+        setInterval(() => {
+            typingEl.classList.toggle('invisible');
+        }, 4000);
+
+        // 4. OneSignal / Follow Button Trigger
+        function handleFollow() {
+            // OneSignal Prompt
+            if (typeof OneSignal !== 'undefined') {
+                OneSignal.push(function() {
+                    OneSignal.showNativePrompt();
+                });
+            }
+            
+            // Interaction Feedback
+            const btn = event.currentTarget;
+            btn.innerHTML = '<i class="fas fa-check mr-2"></i> Requested...';
+            btn.classList.replace('from-pink-500', 'from-gray-400');
+            btn.classList.replace('to-purple-600', 'to-gray-500');
+            
+            // Optional: Redirect to offer after 2 seconds
+            // setTimeout(() => { window.location.href = "YOUR_AFFILIATE_LINK"; }, 2000);
+        }
+
+        // 5. Comment Logic
+        function postComment() {
+            const input = document.getElementById('userInput');
+            const msg = input.value.trim();
+            const container = document.getElementById('commentContainer');
+            const status = document.getElementById('statusMsg');
+
+            if (msg) {
+                const div = document.createElement('div');
+                div.className = 'text-sm bg-pink-50 p-3 rounded-lg border border-pink-100 animate-pulse';
+                div.innerHTML = `<span class="font-bold text-pink-600">You:</span> ${msg}`;
+                container.appendChild(div);
+                container.scrollTop = container.scrollHeight;
+                input.value = '';
+                
+                status.classList.remove('hidden');
+                setTimeout(() => {
+                    status.classList.add('hidden');
+                }, 3000);
+            }
+        }
+
+        // Handle Enter key for comment
+        document.getElementById('userInput').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') postComment();
+        });
+
+        // Add periodic new fake comments to keep it "Live"
+        const fakeMessages = [
+            "Nice pic dear!",
+            "Can we meet tomorrow?",
+            "Are you really online?",
+            "Reply me please!",
+            "I love your style."
+        ];
+
+        setInterval(() => {
+            const container = document.getElementById('commentContainer');
+            const name = names[Math.floor(Math.random() * names.length)];
+            const msg = fakeMessages[Math.floor(Math.random() * fakeMessages.length)];
+            
+            const div = document.createElement('div');
+            div.className = 'text-sm bg-white/40 p-3 rounded-lg opacity-0 transition-opacity duration-500';
+            div.innerHTML = `<span class="font-bold text-purple-600">${name}:</span> ${msg}`;
+            
+            container.appendChild(div);
+            setTimeout(() => div.style.opacity = '1', 10);
+            container.scrollTop = container.scrollHeight;
+
+            if (container.children.length > 8) {
+                container.children[0].remove();
+            }
+        }, 8000);
+
+    </script>
+</body>
+</html>
